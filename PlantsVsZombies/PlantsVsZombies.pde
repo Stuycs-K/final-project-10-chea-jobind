@@ -10,7 +10,7 @@ void setup() {
   print(john.takeDamage(10));
   */
   lawn = new Lawn();
-  level = 123;
+  level = 1;
   menu = new Menu(level);
 }
 
