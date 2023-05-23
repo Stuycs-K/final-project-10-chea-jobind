@@ -20,4 +20,4 @@ Began the abstract class Zombie, with accessor methods and damage management.
 
 ### 2023-05-23
 
-info
+Tweaked lawn constructor by abstracting coordinate converting. Added Documentation to the lawn methods.
