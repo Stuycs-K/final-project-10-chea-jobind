@@ -7,10 +7,12 @@ public class Lawn {
     projectiles = new ArrayList<Projectile>();
     zombies = new ArrayList<Zombie>();
   }
+  //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
     int[] plantCoord = coordConvert(x,y);
     grid[plantCoord[0]][plantCoord[1]] = plant;
   }
+  //Converts from mouseX mouseY to row-column paradigm.
   int[] coordConvert(int x, int y){
     int row = (y-120) / 150;
     if(row > 4) {
@@ -22,6 +24,8 @@ public class Lawn {
     }
     return new int[] {row,col};
   }
+  //Displays grass tiles, making some lighter and some darker.
+  //Will eventually display sprites.
   void display() {
     int offset = 0;
     for(int i = 0; i < grid.length; ++i) {
