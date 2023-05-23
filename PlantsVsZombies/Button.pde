@@ -7,14 +7,16 @@ int POTATOMINE = 5;
 int SNOWPEA = 6;
 int CHOMPER = 7;
 int REPEATER = 8;
+int REMOVE = 9;
+public String[] plantNames = {"blank", "pea shooter", "sunflower", "cherry bomb", "wall-nut", "potato mine", "snow pea", "chomper" , "repeater", "remove"};
 
 public class Button {
   private int x0, y0, x1, y1;
   private int plantType;
   public Button(int a, int b, int c, int d, int type) {
     x0 = a;
-    y0 = b;
-    x1 = c;
+    y0 = c;
+    x1 = b;
     y1 = d;
     plantType = type;
   }
@@ -26,6 +28,14 @@ public class Button {
       return plantType;
     } else {
       return previous;
+    }
+  }
+  void display() {
+    stroke(255);
+    fill(255);
+    rect(x0, y0, x1 - x0, y1 - y0);
+    if(plantType != 0) {
+      text(plantNames[plantType], x0, y0);
     }
   }
 }
