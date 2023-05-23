@@ -2,20 +2,25 @@ public class Menu {
   ArrayList<Button> buttons;
   int border;
   int currentPlant;
+  int sun;
   public Menu(int level) {
     buttons = new ArrayList<Button>();
     border = 120;
     int i = 0;
     for(; i < level && i < 8; ++i) {
-      buttons.add(new Button(10 + 110 * i, 110 + 110 * i, 10, 110, i + 1));
+      buttons.add(new Button(LEFTBORDER + 10 + 110 * i, LEFTBORDER + 110 + 110 * i, 10, 110, i + 1));
     }
     for(; i < 8; ++i) {
-      buttons.add(new Button(10 + 110 * i, 110 + 110 * i, 10, 110, 0));
+      buttons.add(new Button(LEFTBORDER + 10 + 110 * i, LEFTBORDER + 110 + 110 * i, 10, 110, BLANK));
     }
-    buttons.add(new Button(10 + 110 * i, 110 + 110 * i, 10, 110, 9));
+    buttons.add(new Button(LEFTBORDER + 50 + 110 * i, LEFTBORDER + 150 + 110 * i, 10, 110, REMOVE));
     currentPlant = 1;
+    sun = 50;
   }
   void processClick(Lawn l) {
+    if(mouseX < LEFTBORDER || mouseY > BOTTOMBORDER || mouseX > RIGHTBORDER) {
+      return;
+    }
     for(int i = 0; i < buttons.size(); ++i) {
       if(buttons.get(i).isInButton(mouseX, mouseY)) {
         currentPlant = buttons.get(i).press(currentPlant);
@@ -29,10 +34,14 @@ public class Menu {
   void display() {
     stroke(160, 82, 45);
     fill(139, 69, 19);
-    rect(0, 0, buttons.size() * 120, border);
+    rect(0, 0, LEFTBORDER + buttons.size() * 120, border);
     for(int i = 0; i < buttons.size(); ++i) {
       buttons.get(i).display();
     }
-    text(currentPlant, 0, border);
+    if(currentPlant == -1) {
+      text("remove", 0, border);
+    } else {
+      text(plantNames[currentPlant], 0, border);
+    }
   }
 }
