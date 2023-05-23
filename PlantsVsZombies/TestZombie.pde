@@ -6,4 +6,7 @@ public class TestZombie extends Zombie{
     setHealth(getHealth()-damage);
     return getHealth();
   }
+  public void eatPlant(Plant p){
+    return;
+  }
 }

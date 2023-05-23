@@ -4,6 +4,7 @@ public abstract class Zombie {
   private int cooldown;
   private double speed;
   private PImage sprite;
+  private int ID;
   public Zombie(int health_, int damage_, int cooldown_, double speed_, PImage sprite_){
     health=health_;
     damage=damage_;
@@ -12,6 +13,7 @@ public abstract class Zombie {
     sprite=sprite_;
   }
   public abstract int takeDamage(int damage);
+  public abstract void eatPlant(Plant p);
   public int getHealth(){
     return health;
   }
@@ -21,6 +23,9 @@ public abstract class Zombie {
   public int getCoolDown(){
     return cooldown;
   }
+  public int getID(){
+    return ID;
+  }
   public double getSpeed(){
     return speed;
   }
@@ -29,5 +34,8 @@ public abstract class Zombie {
   }
   public void setHealth(int h){
     health = h;
+  }
+  public void setID(int i){
+    ID=i;
   }
 }
