@@ -12,12 +12,12 @@ I also made a display function for the lawn and menu and put it in the driver's 
 info
 
 
-## GROUP MEMBER 2
+## DAVID JOBIN
 
-### date x
+### 2023-05-22
 
-info
+Began the abstract class Zombie, with accessor methods and damage management.
 
-### date y
+### 2023-05-23
 
 info
