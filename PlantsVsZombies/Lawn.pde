@@ -8,6 +8,10 @@ public class Lawn {
     zombies = new ArrayList<Zombie>();
   }
   void placePlant(int x, int y, int plant) {
+    int[] plantCoord = coordConvert(x,y);
+    grid[plantCoord[0]][plantCoord[1]] = plant;
+  }
+  int[] coordConvert(int x, int y){
     int row = (y-120) / 150;
     if(row > 4) {
       row = 4;
@@ -16,7 +20,7 @@ public class Lawn {
     if(col > 8) {
       col = 8;
     }
-    grid[row][col] = plant;
+    return new int[] {row,col};
   }
   void display() {
     int offset = 0;
