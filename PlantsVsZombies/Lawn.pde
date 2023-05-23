@@ -1,3 +1,8 @@
+public static int LEFTBORDER = 125;
+public static int TOPBORDER = 120;
+public static int BOTTOMBORDER = 870;
+public static int RIGHTBORDER = 1475;
+
 public class Lawn {
   int[][] grid;
   ArrayList<Projectile> projectiles;
