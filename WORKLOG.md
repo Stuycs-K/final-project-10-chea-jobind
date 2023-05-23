@@ -1,12 +1,13 @@
 # Work Log
 
-## GROUP MEMBER 1
+## ANDREW CHE
 
-### date x
+### 2023-05-22
 
-info
+I started working on the menu in class, and finished it at home.
+I also made a display function for the lawn and menu and put it in the driver's draw function so I can see everything works so far.
 
-### date y
+### 2023-05-23
 
 info
 
