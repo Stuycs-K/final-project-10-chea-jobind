@@ -14,11 +14,13 @@ public class Lawn {
   }
   //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
-    int[] plantCoord = coordConvert(x,y);
+    int[] plantCoord = mouseToArr(x,y);
     grid[plantCoord[0]][plantCoord[1]] = plant;
+    int[] imageCoord = arrToMouse(plantCoord[0], plantCoord[1]);
+    image(loadImage(plantImageNames[plant]), imageCoord[0], imageCoord[1], 150, 150);
   }
   //Converts from mouseX mouseY to row-column paradigm.
-  int[] coordConvert(int x, int y){
+  int[] mouseToArr(int x, int y){
     int row = (y-120) / 150;
     if(row > 4) {
       row = 4;
@@ -28,6 +30,12 @@ public class Lawn {
       col = 8;
     }
     return new int[] {row,col};
+  }
+  //Converts from row-column to top left x y coords on screen
+  int[] arrToMouse(int i, int j) {
+    int x = j * 150 + 125;
+    int y = i * 150 + 120;
+    return new int[] {x, y};
   }
   //Displays grass tiles, making some lighter and some darker.
   //Will eventually display sprites.
