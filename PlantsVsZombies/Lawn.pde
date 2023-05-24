@@ -22,6 +22,7 @@ public class Lawn {
       col = 8;
     }
     grid[row][col] = plant;
+    image(loadImage(plantImageNames[plant]), col * 150 + 125, row * 150 + 120, 150, 150);
   }
   void display() {
     int offset = 0;
