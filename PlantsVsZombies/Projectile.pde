@@ -4,8 +4,8 @@ public class Projectile {
   int size;
   int damage;
   boolean active;
-  int slow;
-  public Projectile(PVector pos, PVector vel, int siz, int dmg, int slo) {
+  boolean slow;
+  public Projectile(PVector pos, PVector vel, int siz, int dmg, boolean slo) {
     position = pos;
     velocity = vel;
     size = siz;

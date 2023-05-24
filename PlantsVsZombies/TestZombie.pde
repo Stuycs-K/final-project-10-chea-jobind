@@ -1,6 +1,6 @@
 public class TestZombie extends Zombie{
-  public TestZombie(int h,int d,int c,double s, PImage sprite){
-    super(h,d,c,s,sprite);
+  public TestZombie(int h,int d,int c,double s, PImage sprite, PVector pos){
+    super(h,d,c,s,sprite,pos);
   }
   public int takeDamage(int damage){
     setHealth(getHealth()-damage);
@@ -8,5 +8,8 @@ public class TestZombie extends Zombie{
   }
   public void eatPlant(Plant p){
     return;
+  }
+  public void move(){
+    
   }
 }

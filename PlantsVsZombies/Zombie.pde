@@ -2,26 +2,34 @@ public abstract class Zombie {
   private int health;
   private int damage;
   private int cooldown;
+  private int currentCooldown;
   private double speed;
   private PImage sprite;
   private int ID;
-  public Zombie(int health_, int damage_, int cooldown_, double speed_, PImage sprite_){
+  private PVector position;
+  public Zombie(int health_, int damage_, int cooldown_, double speed_, PImage sprite_, PVector position_){
     health=health_;
     damage=damage_;
     cooldown=cooldown_;
+    currentCooldown = cooldown_;
     speed=speed_;
     sprite=sprite_;
+    position = position_;
   }
   public abstract int takeDamage(int damage);
   public abstract void eatPlant(Plant p);
+  public abstract void move();
   public int getHealth(){
     return health;
   }
   public int getDamage(){
     return damage;
   }
-  public int getCoolDown(){
+  public int getCooldown(){
     return cooldown;
+  }
+  public int getCurrentCooldown(){
+    return currentCooldown;
   }
   public int getID(){
     return ID;
@@ -32,10 +40,22 @@ public abstract class Zombie {
   public PImage getSprite(){
     return sprite;
   }
+  public PVector getPos(){
+    return position;
+  }
+  public void setPos(PVector p){
+    position = p;
+  }
   public void setHealth(int h){
     health = h;
   }
   public void setID(int i){
     ID=i;
+  }
+  public void decrement(){
+    currentCooldown--;
+    if(currentCooldown<1){
+      currentCooldown = cooldown;
+    }
   }
 }
