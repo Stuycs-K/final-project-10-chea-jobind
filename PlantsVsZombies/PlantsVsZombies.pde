@@ -10,15 +10,17 @@ void setup() {
   print(john.takeDamage(10));
   */
   lawn = new Lawn();
-  level = 1;
+  level = 11;
   menu = new Menu(level);
-}
-
-void draw() {
   lawn.display();
   menu.display();
 }
 
+void draw() {
+
+}
+
 void mouseClicked() {
   menu.processClick(lawn);
+  menu.display();
 }
