@@ -21,14 +21,15 @@ public class Menu {
     if(mouseX < LEFTBORDER || mouseY > BOTTOMBORDER || mouseX > RIGHTBORDER) {
       return;
     }
+    if(mouseY > border) {
+      l.placePlant(mouseX, mouseY, currentPlant);
+      return;
+    }
     for(int i = 0; i < buttons.size(); ++i) {
       if(buttons.get(i).isInButton(mouseX, mouseY)) {
         currentPlant = buttons.get(i).press(currentPlant);
         return;
       }
-    }
-    if(mouseY > border) {
-      l.placePlant(mouseX, mouseY, currentPlant);
     }
   }
   void display() {
@@ -38,6 +39,18 @@ public class Menu {
     for(int i = 0; i < buttons.size(); ++i) {
       buttons.get(i).display();
     }
+    if(currentPlant == -1) {
+      text("remove", 0, border);
+    } else {
+      text(plantNames[currentPlant], 0, border);
+    }
+  }
+  void update() {
+    stroke(160, 82, 45);
+    fill(139, 69, 19);
+    rect(0, 110, 120, 10);
+    stroke(255);
+    fill(255);
     if(currentPlant == -1) {
       text("remove", 0, border);
     } else {
