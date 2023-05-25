@@ -14,10 +14,11 @@ void setup() {
   menu = new Menu(level);
   lawn.display();
   menu.display();
+  lawn.spawnZombie(-1);
 }
 
 void draw() {
-
+  lawn.renderZombies();
 }
 
 void mouseClicked() {

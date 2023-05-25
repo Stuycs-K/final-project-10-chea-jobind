@@ -8,8 +8,9 @@ public abstract class Zombie {
   private PImage sprite;
   private int ID;
   private PVector position;
+  private color zCol;
   
-  public Zombie(int health_, int damage_, int cooldown_, float speed_, PImage sprite_, PVector position_){
+  public Zombie(int health_, int damage_, int cooldown_, float speed_, PImage sprite_, PVector position_, color zCol_){
     health=health_;
     damage=damage_;
     cooldown=cooldown_;
@@ -18,6 +19,7 @@ public abstract class Zombie {
     sprite=sprite_;
     position = position_;
     currentPlant=null;
+    zCol=zCol_;
   }
   //methods every
   public abstract int takeDamage(int damage);
@@ -47,6 +49,9 @@ public abstract class Zombie {
   }
   public PVector getPos(){
     return position;
+  }
+  public color getColor(){
+    return zCol;
   }
   public void setPos(PVector p){
     position = p;
