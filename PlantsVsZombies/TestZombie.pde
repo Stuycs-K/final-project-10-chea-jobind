@@ -12,6 +12,6 @@ public class TestZombie extends Zombie{
     //p.takeDamage();
   }
   public void move(){
-    addPos(new PVector(getSpeed(),0));
+    addPos(new PVector(-getSpeed(),0));
   }
 }
