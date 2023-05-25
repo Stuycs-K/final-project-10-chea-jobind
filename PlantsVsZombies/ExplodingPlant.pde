@@ -7,6 +7,6 @@ public class ExplodingPlant extends Plant {
     radius = 225; // 1.5 squares
   }
   public Projectile explode() {
-    return new Projectile(new PVector(0, 0), new PVector(0, 0), radius * 2, damage, 0);
+    return new Projectile(new PVector(0, 0), new PVector(0, 0), radius * 2, damage, false);
   }
 }
