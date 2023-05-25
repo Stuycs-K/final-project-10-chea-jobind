@@ -14,6 +14,11 @@ I shifted the buttons over to make space for the sun counter.
 I turned some magic numbers into variables.
 I added basic sprite drawing and optimized the driver so it doesn't draw every tick.
 
+### 2023-05-24
+
+Created 2 of the 3 plant subclasses and changed the lawn grid to Plant instead of int.
+I then had to change plant placing and processing to make sure an empty space (null) doesn't cause problems.
+
 
 ## DAVID JOBIN
 
