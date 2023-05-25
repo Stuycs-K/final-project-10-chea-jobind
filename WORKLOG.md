@@ -24,3 +24,8 @@ Began the abstract class Zombie, with accessor methods and damage management.
 ### 2023-05-23
 
 Tweaked lawn constructor by abstracting coordinate converting. Added Documentation to the lawn methods.
+
+### 2023-05-24
+
+Wrote Zombie movement code using PVectors.
+Zombies can now attack plants when the cooldown is ready.
