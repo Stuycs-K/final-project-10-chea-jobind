@@ -29,7 +29,8 @@ public class Lawn {
     }
     grid[plantCoord[0]][plantCoord[1]] = p;
     int[] imageCoord = arrToMouse(plantCoord[0], plantCoord[1]);
-    image(loadImage(plantImageNames[plant]), imageCoord[0], imageCoord[1], 150, 150);
+    //image(loadImage(plantImageNames[plant]), imageCoord[0], imageCoord[1], 150, 150);
+    circle(imageCoord[0] + 75, imageCoord[1] + 75, 150);
   }
   //Converts from mouseX mouseY to row-column paradigm.
   int[] mouseToArr(int x, int y){
