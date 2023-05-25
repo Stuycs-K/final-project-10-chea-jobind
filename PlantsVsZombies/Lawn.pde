@@ -67,6 +67,13 @@ public class Lawn {
     switch(ID){
       case -1: z = new TestZombie(5,5,5,5.0,null,pos);
     }
+    zombies.add(z);
     return z;
+  }
+  void renderZombies(){
+    for(Zombie z: zombies){
+      fill(z.getColor());
+      ellipse(z.getPos().x,z.getPos().y+TILE/2,TILE*2/3,TILE*5/6);
+    }
   }
 }
