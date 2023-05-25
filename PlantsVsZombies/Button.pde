@@ -1,13 +1,13 @@
-int REMOVE = -1;
-int BLANK = 0;
-int PEASHOOTER = 1;
-int SUNFLOWER = 2;
-int CHERRYBOMB = 3;
-int WALLNUT = 4;
-int POTATOMINE = 5;
-int SNOWPEA = 6;
-int CHOMPER = 7;
-int REPEATER = 8;
+static int REMOVE = -1;
+static int BLANK = 0;
+static int PEASHOOTER = 1;
+static int SUNFLOWER = 2;
+static int CHERRYBOMB = 3;
+static int WALLNUT = 4;
+static int POTATOMINE = 5;
+static int SNOWPEA = 6;
+static int CHOMPER = 7;
+static int REPEATER = 8;
 public String[] plantNames = {"blank", "pea shooter", "sunflower", "cherry bomb", "wall-nut", "potato mine", "snow pea", "chomper" , "repeater"};
 public String[] plantImageNames = {"noplant.png", "peashooter.jpg", "sunflower.jpg", "cherrybomb.png", "wallnut.png", "potatomine.jpg", "snowpea.png", "chomper.png", "repeater.jpg"};
 
