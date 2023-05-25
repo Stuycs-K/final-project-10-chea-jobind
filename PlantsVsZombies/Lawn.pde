@@ -28,9 +28,6 @@ public class Lawn {
       }
     }
     grid[plantCoord[0]][plantCoord[1]] = p;
-    int[] imageCoord = arrToMouse(plantCoord[0], plantCoord[1]);
-    //image(loadImage(plantImageNames[plant]), imageCoord[0], imageCoord[1], 150, 150);
-    circle(imageCoord[0] + 75, imageCoord[1] + 75, 150);
   }
   //Converts from mouseX mouseY to row-column paradigm.
   int[] mouseToArr(int x, int y){
@@ -60,13 +57,17 @@ public class Lawn {
         stroke(0, 200 - offset + (i % 2) * 50, 0);
         fill(0, 200 - offset + (i % 2) * 50, 0);
         rect(125 + 150 * j, 120 + 150 * i, 150, 150);
-        stroke(0);
-        fill(0);
+        if(grid[i][j] != null) {
+          int[] imageCoord = arrToMouse(i, j);
+          image(loadImage(plantImageNames[grid[i][j].getID()]), imageCoord[0], imageCoord[1], 150, 150);
+        }
+        /*
         if(grid[i][j] == null) {
           text(plantNames[BLANK], j * 150 + 125, i * 150 + 130);
         } else {
           text(plantNames[grid[i][j].getID()], j * 150 + 125, i * 150 + 130);
         }
+        */
         switch(offset) {
           case 0:  offset = 50;
                    break;
