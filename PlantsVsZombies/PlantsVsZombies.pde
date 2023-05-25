@@ -23,5 +23,4 @@ void draw() {
 void mouseClicked() {
   menu.processClick(lawn);
   menu.update();
-  lawn.display();
 }
