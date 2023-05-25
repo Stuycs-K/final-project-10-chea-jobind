@@ -10,7 +10,7 @@ public abstract class Plant {
     id = i;
     cooldown = plantCooldowns[i];
   }
-  void takeDamage() {
+  public void takeDamage() {
     --health;
   }
   public int getHealth() {
@@ -22,4 +22,8 @@ public abstract class Plant {
   public int tickCooldown() {
     return --cooldown;
   }
+  public int getID() {
+    return id;
+  }
+
 }
