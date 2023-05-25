@@ -3,11 +3,11 @@ public abstract class Zombie {
   private int damage;
   private int cooldown;
   private int currentCooldown;
-  private double speed;
+  private float speed;
   private PImage sprite;
   private int ID;
   private PVector position;
-  public Zombie(int health_, int damage_, int cooldown_, double speed_, PImage sprite_, PVector position_){
+  public Zombie(int health_, int damage_, int cooldown_, float speed_, PImage sprite_, PVector position_){
     health=health_;
     damage=damage_;
     cooldown=cooldown_;
@@ -34,7 +34,7 @@ public abstract class Zombie {
   public int getID(){
     return ID;
   }
-  public double getSpeed(){
+  public float getSpeed(){
     return speed;
   }
   public PImage getSprite(){
@@ -45,6 +45,9 @@ public abstract class Zombie {
   }
   public void setPos(PVector p){
     position = p;
+  }
+  public void addPos(PVector p){
+    position.add(new PVector(speed,0.0));
   }
   public void setHealth(int h){
     health = h;
