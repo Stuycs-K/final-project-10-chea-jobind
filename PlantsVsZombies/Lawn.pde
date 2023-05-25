@@ -2,6 +2,7 @@ public static int LEFTBORDER = 125;
 public static int TOPBORDER = 120;
 public static int BOTTOMBORDER = 870;
 public static int RIGHTBORDER = 1475;
+public static int TILE = 150;
 
 public class Lawn {
   int[][] grid;
@@ -58,5 +59,14 @@ public class Lawn {
         }
       }
     }
+  }
+  Zombie spawnZombie(int ID){
+    int row = (int)random(5);
+    PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row);
+    Zombie z = new TestZombie(0,0,0,0,null,null);
+    switch(ID){
+      case -1: z = new TestZombie(5,5,5,5.0,null,pos);
+    }
+    return z;
   }
 }
