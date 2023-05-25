@@ -19,6 +19,7 @@ void setup() {
 
 void draw() {
   lawn.renderZombies();
+  lawn.tickZombies();
 }
 
 void mouseClicked() {

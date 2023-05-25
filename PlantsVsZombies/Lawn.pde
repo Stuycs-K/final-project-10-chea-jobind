@@ -89,8 +89,14 @@ public class Lawn {
   }
   void renderZombies(){
     for(Zombie z: zombies){
+      lawn.display();
       fill(z.getColor());
       ellipse(z.getPos().x,z.getPos().y+TILE/2,TILE*2/3,TILE*5/6);
+    }
+  }
+  void tickZombies(){
+    for(Zombie z: zombies){
+      z.move();
     }
   }
 }
