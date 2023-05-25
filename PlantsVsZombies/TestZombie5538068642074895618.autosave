@@ -8,8 +8,7 @@ public class TestZombie extends Zombie{
     return getHealth();
   }
   public void eatPlant(Plant p){
-    if(p==null)return;
-    //p.takeDamage();
+    return;
   }
   public void move(){
     addPos(new PVector(getSpeed(),0));
