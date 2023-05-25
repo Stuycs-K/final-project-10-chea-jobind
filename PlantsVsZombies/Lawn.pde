@@ -4,18 +4,30 @@ public static int BOTTOMBORDER = 870;
 public static int RIGHTBORDER = 1475;
 
 public class Lawn {
-  int[][] grid;
+  Plant[][] grid;
   ArrayList<Projectile> projectiles;
   ArrayList<Zombie> zombies;
   public Lawn() {
-    grid = new int[5][9];
+    grid = new Plant[5][9];
     projectiles = new ArrayList<Projectile>();
     zombies = new ArrayList<Zombie>();
   }
   //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
     int[] plantCoord = mouseToArr(x,y);
-    grid[plantCoord[0]][plantCoord[1]] = plant;
+    Plant p;
+    if(plant == BLANK) {
+      p = null;
+    } else {
+      if(plant == PEASHOOTER || plant == SNOWPEA || plant == CHOMPER || plant == REPEATER) {
+        p = new ShootingPlant(plant);
+      } else if(plant == CHERRYBOMB || plant == POTATOMINE) {
+        p = new ExplodingPlant(plant);
+      } else {
+        p = null;
+      }
+    }
+    grid[plantCoord[0]][plantCoord[1]] = p;
     int[] imageCoord = arrToMouse(plantCoord[0], plantCoord[1]);
     image(loadImage(plantImageNames[plant]), imageCoord[0], imageCoord[1], 150, 150);
   }
@@ -49,7 +61,11 @@ public class Lawn {
         rect(125 + 150 * j, 120 + 150 * i, 150, 150);
         stroke(0);
         fill(0);
-        text(plantNames[grid[i][j]], j * 150 + 125, i * 150 + 130);
+        if(grid[i][j] == null) {
+          text(plantNames[BLANK], j * 150 + 125, i * 150 + 130);
+        } else {
+          text(plantNames[grid[i][j].getID()], j * 150 + 125, i * 150 + 130);
+        }
         switch(offset) {
           case 0:  offset = 50;
                    break;
