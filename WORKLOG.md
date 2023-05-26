@@ -32,5 +32,9 @@ Tweaked lawn constructor by abstracting coordinate converting. Added Documentati
 
 ### 2023-05-24
 
-Wrote Zombie movement code using PVectors.
+Wrote Zombie position code using PVectors.
 Zombies can now attack plants when the cooldown is ready.
+
+### 2023-05-25
+
+Animated Zombie movement
