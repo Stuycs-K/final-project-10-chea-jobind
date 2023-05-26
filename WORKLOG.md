@@ -46,3 +46,7 @@ Zombies can now attack plants when the cooldown is ready.
 ### 2023-05-25
 
 Animated Zombie movement
+
+### 2023-05-26
+
+Made Zombies stop and eat when they reach a plant.
