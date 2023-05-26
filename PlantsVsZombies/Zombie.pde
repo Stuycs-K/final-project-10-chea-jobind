@@ -71,4 +71,7 @@ public abstract class Zombie {
       currentCooldown = cooldown;
     }
   }
+  public void setCurPlant(Plant p){
+    currentPlant = p;
+  }
 }
