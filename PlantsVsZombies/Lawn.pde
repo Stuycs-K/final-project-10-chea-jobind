@@ -101,7 +101,7 @@ public class Lawn {
   }
   void tickZombies(){
     for(int i = 0; i < zombies.size(); ++i) {
-      Zombie z = zombies.get(i)
+      Zombie z = zombies.get(i);
       int[] pos = mouseToArr((int)z.getPos().x,(int)z.getPos().y);
       if(grid[pos[0]][pos[1]]!=null){
         z.eatPlant(grid[pos[0]][pos[1]]);
