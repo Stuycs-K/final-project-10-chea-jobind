@@ -120,6 +120,10 @@ public class Lawn {
   void processPlants() {
     for(int i = 0; i < grid.length; ++i) {
       for(int j = 0; j < grid[0].length; ++j) {
+        if(grid[i][j] != null && grid[i][j].getHealth() == 0) {
+          grid[i][j] = null;
+          break;
+        }
         int id = grid[i][j] != null ? grid[i][j].getID() : BLANK;
         if(id == PEASHOOTER || id == SNOWPEA || id == CHOMPER || id == REPEATER) {
           Projectile p = (Projectile)(grid[i][j].tick());
