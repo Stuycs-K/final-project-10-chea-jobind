@@ -20,10 +20,18 @@ public abstract class Plant {
     return cooldown;
   }
   public int tickCooldown() {
-    return --cooldown;
+    if(cooldown > 0) {
+      return --cooldown;
+    }
+    return 0;
   }
   public int getID() {
     return id;
   }
-
+  public void resetCooldown() {
+    cooldown = plantCooldowns[id];
+  }
+  public Object tick() {
+    return null;
+  }
 }
