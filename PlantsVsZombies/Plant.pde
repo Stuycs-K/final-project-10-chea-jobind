@@ -1,5 +1,5 @@
 public static int[] plantHealths = {-1, 6, 6, 999, 72, 6, 6, 6, 6};
-public static int[] plantCooldowns = {-1, 90, 1440, 60, 9999, 900, 90, 2520, 90};
+public static int[] plantCooldowns = {-1, int(1.5 * FRAMERATE), 24 * FRAMERATE, 2 * FRAMERATE, 9999, 15 * FRAMERATE, int(1.5 * FRAMERATE), 42 * FRAMERATE, int(1.5 * FRAMERATE)};
 
 public abstract class Plant {
   private int health;
