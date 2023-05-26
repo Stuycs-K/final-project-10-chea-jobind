@@ -2,9 +2,11 @@ Lawn lawn;
 Menu menu;
 int level;
 SunManager sm;
+public static final int FRAMERATE = 24;
 
 void setup() {
   size(1600, 900);
+  frameRate(frameRate);
   /*
   Zombie john = new TestZombie(100,1,1,1.0,null);
   print(john.getHealth());
