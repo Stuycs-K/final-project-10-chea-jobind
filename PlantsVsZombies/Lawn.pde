@@ -8,10 +8,12 @@ public class Lawn {
   Plant[][] grid;
   ArrayList<Projectile> projectiles;
   ArrayList<Zombie> zombies;
-  public Lawn() {
+  SunManager sunM;
+  public Lawn(SunManager s) {
     grid = new Plant[5][9];
     projectiles = new ArrayList<Projectile>();
     zombies = new ArrayList<Zombie>();
+    sunM = s;
   }
   //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
@@ -24,14 +26,13 @@ public class Lawn {
         p = new ShootingPlant(plant);
       } else if(plant == CHERRYBOMB || plant == POTATOMINE) {
         p = new ExplodingPlant(plant);
+      } else if(plant == SUNFLOWER || plant == WALLNUT) {
+        p = new ProducingPlant(plant);
       } else {
         p = null;
       }
     }
     grid[plantCoord[0]][plantCoord[1]] = p;
-    int[] imageCoord = arrToMouse(plantCoord[0], plantCoord[1]);
-    //image(loadImage(plantImageNames[plant]), imageCoord[0], imageCoord[1], 150, 150);
-    circle(imageCoord[0] + 75, imageCoord[1] + 75, 150);
   }
   //Converts from mouseX mouseY to row-column paradigm.
   int[] mouseToArr(int x, int y){
@@ -61,13 +62,17 @@ public class Lawn {
         stroke(0, 200 - offset + (i % 2) * 50, 0);
         fill(0, 200 - offset + (i % 2) * 50, 0);
         rect(125 + 150 * j, 120 + 150 * i, 150, 150);
-        stroke(0);
-        fill(0);
+        if(grid[i][j] != null) {
+          int[] imageCoord = arrToMouse(i, j);
+          image(loadImage(plantImageNames[grid[i][j].getID()]), imageCoord[0], imageCoord[1], 150, 150);
+        }
+        /*
         if(grid[i][j] == null) {
           text(plantNames[BLANK], j * 150 + 125, i * 150 + 130);
         } else {
           text(plantNames[grid[i][j].getID()], j * 150 + 125, i * 150 + 130);
         }
+        */
         switch(offset) {
           case 0:  offset = 50;
                    break;
@@ -95,12 +100,44 @@ public class Lawn {
     }
   }
   void tickZombies(){
-    for(Zombie z: zombies){
+    for(int i = 0; i < zombies.size(); ++i) {
+      Zombie z = zombies.get(i)
       int[] pos = mouseToArr((int)z.getPos().x,(int)z.getPos().y);
       if(grid[pos[0]][pos[1]]!=null){
         z.eatPlant(grid[pos[0]][pos[1]]);
       } else{
         z.move();
+      }
+      if(z.getPos().x < 0) {
+        zombies.remove(i);
+        //END GAME
+      }
+    }
+  }
+  void processPlants() {
+    for(int i = 0; i < grid.length; ++i) {
+      for(int j = 0; j < grid[0].length; ++j) {
+        int id = grid[i][j] != null ? grid[i][j].getID() : BLANK;
+        if(id == PEASHOOTER || id == SNOWPEA || id == CHOMPER || id == REPEATER) {
+          Projectile p = (Projectile)(grid[i][j].tick());
+          if(p != null) {
+            projectiles.add(p);
+          }
+        }
+        if(id == CHERRYBOMB || id == POTATOMINE) {
+          Projectile p = (Projectile)(grid[i][j].tick());
+          if(p != null) {
+            projectiles.add(p);
+            grid[i][j] = null;
+          }
+        }
+        if(id == SUNFLOWER || id == WALLNUT) {
+          println(grid[i][j].getCooldown());
+          Sun s = (Sun)(grid[i][j].tick());
+          if(s != null) {
+            sunM.add(s);
+          }
+        }
       }
     }
   }

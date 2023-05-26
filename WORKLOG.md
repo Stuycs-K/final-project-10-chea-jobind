@@ -19,6 +19,14 @@ I added basic sprite drawing and optimized the driver so it doesn't draw every t
 Created 2 of the 3 plant subclasses and changed the lawn grid to Plant instead of int.
 I then had to change plant placing and processing to make sure an empty space (null) doesn't cause problems.
 
+### 2023-05-25
+
+I made the ProducingPlant class and of course the Sun class to go with it.
+I also came up with a SunManager class (not on UML) to manage everything sun-related instead of the Lawn having to do it.
+I made shoot, explode, and produce into a single abstract Plant method called tick. This is because grid is a Plant array, so I need to have a method that all Plants have to proccess the array properly.
+Speaking of which, I added a processPlants function in Lawn which makes every plant spawn a projectile, sun, etc.
+Lastly, I reorganized the main/driver program to draw lawns each tick in order to stop suns drawing over each other. However, this increases CPU demand significantly. I can't think of a better solution.
+
 
 ## DAVID JOBIN
 
@@ -32,5 +40,9 @@ Tweaked lawn constructor by abstracting coordinate converting. Added Documentati
 
 ### 2023-05-24
 
-Wrote Zombie movement code using PVectors.
+Wrote Zombie position code using PVectors.
 Zombies can now attack plants when the cooldown is ready.
+
+### 2023-05-25
+
+Animated Zombie movement
