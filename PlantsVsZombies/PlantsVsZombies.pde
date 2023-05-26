@@ -16,11 +16,14 @@ void setup() {
   menu = new Menu(level);
   lawn.display();
   menu.display();
+  lawn.spawnZombie(-1);
 }
 
 void draw() {
   lawn.processPlants();
   lawn.display();
+  lawn.renderZombies();
+  lawn.tickZombies();
   sm.add(sm.findSun());
 }
 
