@@ -12,6 +12,9 @@ public abstract class Plant {
   }
   public void takeDamage() {
     --health;
+    if(health < 0) {
+      health = 0;
+    }
   }
   public int getHealth() {
     return health;
