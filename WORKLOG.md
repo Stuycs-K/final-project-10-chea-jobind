@@ -27,6 +27,12 @@ I made shoot, explode, and produce into a single abstract Plant method called ti
 Speaking of which, I added a processPlants function in Lawn which makes every plant spawn a projectile, sun, etc.
 Lastly, I reorganized the main/driver program to draw lawns each tick in order to stop suns drawing over each other. However, this increases CPU demand significantly. I can't think of a better solution.
 
+### 2023-05-26
+
+I made a manual framerate setting and adjusted plant cooldowns based on that variable.
+I also made plants display as circles instead of images to improve performance.
+David and I made the plants die when a zombie stops in front of them and deal enough damage.
+
 
 ## DAVID JOBIN
 

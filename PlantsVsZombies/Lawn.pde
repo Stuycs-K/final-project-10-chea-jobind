@@ -64,7 +64,10 @@ public class Lawn {
         rect(125 + 150 * j, 120 + 150 * i, 150, 150);
         if(grid[i][j] != null) {
           int[] imageCoord = arrToMouse(i, j);
-          image(loadImage(plantImageNames[grid[i][j].getID()]), imageCoord[0], imageCoord[1], 150, 150);
+          //image(loadImage(plantImageNames[grid[i][j].getID()]), imageCoord[0], imageCoord[1], 150, 150);
+          fill(255);
+          stroke(255);
+          circle(imageCoord[0] + 75, imageCoord[1] + 75, 75);
         }
         /*
         if(grid[i][j] == null) {
@@ -117,6 +120,10 @@ public class Lawn {
   void processPlants() {
     for(int i = 0; i < grid.length; ++i) {
       for(int j = 0; j < grid[0].length; ++j) {
+        if(grid[i][j] != null && grid[i][j].getHealth() == 0) {
+          grid[i][j] = null;
+          break;
+        }
         int id = grid[i][j] != null ? grid[i][j].getID() : BLANK;
         if(id == PEASHOOTER || id == SNOWPEA || id == CHOMPER || id == REPEATER) {
           Projectile p = (Projectile)(grid[i][j].tick());
