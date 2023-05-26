@@ -7,10 +7,12 @@ public class Lawn {
   Plant[][] grid;
   ArrayList<Projectile> projectiles;
   ArrayList<Zombie> zombies;
-  public Lawn() {
+  SunManager sunM;
+  public Lawn(SunManager s) {
     grid = new Plant[5][9];
     projectiles = new ArrayList<Projectile>();
     zombies = new ArrayList<Zombie>();
+    sunM = s;
   }
   //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
@@ -23,6 +25,8 @@ public class Lawn {
         p = new ShootingPlant(plant);
       } else if(plant == CHERRYBOMB || plant == POTATOMINE) {
         p = new ExplodingPlant(plant);
+      } else if(plant == SUNFLOWER || plant == WALLNUT) {
+        p = new ProducingPlant(plant);
       } else {
         p = null;
       }
@@ -73,6 +77,33 @@ public class Lawn {
                    break;
           case 50: offset = 0;
                    break;
+        }
+      }
+    }
+  }
+  void processPlants() {
+    for(int i = 0; i < grid.length; ++i) {
+      for(int j = 0; j < grid[0].length; ++j) {
+        int id = grid[i][j] != null ? grid[i][j].getID() : BLANK;
+        if(id == PEASHOOTER || id == SNOWPEA || id == CHOMPER || id == REPEATER) {
+          Projectile p = (Projectile)(grid[i][j].tick());
+          if(p != null) {
+            projectiles.add(p);
+          }
+        }
+        if(id == CHERRYBOMB || id == POTATOMINE) {
+          Projectile p = (Projectile)(grid[i][j].tick());
+          if(p != null) {
+            projectiles.add(p);
+            grid[i][j] = null;
+          }
+        }
+        if(id == SUNFLOWER || id == WALLNUT) {
+          println(grid[i][j].getCooldown());
+          Sun s = (Sun)(grid[i][j].tick());
+          if(s != null) {
+            sunM.add(s);
+          }
         }
       }
     }
