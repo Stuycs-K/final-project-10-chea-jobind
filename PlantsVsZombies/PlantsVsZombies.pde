@@ -1,6 +1,7 @@
 Lawn lawn;
 Menu menu;
 int level;
+SunManager sm;
 
 void setup() {
   size(1600, 900);
@@ -9,7 +10,8 @@ void setup() {
   print(john.getHealth());
   print(john.takeDamage(10));
   */
-  lawn = new Lawn();
+  sm = new SunManager();
+  lawn = new Lawn(sm);
   level = 11;
   menu = new Menu(level);
   lawn.display();
@@ -17,11 +19,13 @@ void setup() {
 }
 
 void draw() {
-
+  lawn.processPlants();
+  lawn.display();
+  sm.add(sm.findSun());
 }
 
 void mouseClicked() {
-  lawn.display();
   menu.processClick(lawn);
+  lawn.display();
   menu.update();
 }
