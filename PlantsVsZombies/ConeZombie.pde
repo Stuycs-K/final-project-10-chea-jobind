@@ -1,6 +1,6 @@
 public class ConeZombie extends Zombie{
-  static final int COOLDOWN_=20;
-  static final float SPEED = 1;
+  static final int COOLDOWN_=40;
+  static final float SPEED = 0.5;
   static final color ZCOL = #F5B940;
   static final int ID = 2;
   public ConeZombie(int h, PImage sprite, PVector pos){

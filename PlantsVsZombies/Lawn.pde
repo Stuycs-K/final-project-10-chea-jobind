@@ -96,19 +96,22 @@ public class Lawn {
     Zombie z = new DefaultZombie();
     switch(ID){
       //case -1: z = new TestZombie(5,5.0,null,pos);
-      case 1: 
+      case 1:
         z = new DefaultZombie(5,pos);
         break;
-      case 2: 
+      case 2:
         z = new ConeZombie(10,pos);
+        break;
+      case 3:
+        z = new BucketZombie(35,pos);
         break;
     }
     zombies.add(z);
     return z;
   }
   void renderZombies(){
+    lawn.display();
     for(Zombie z: zombies){
-      lawn.display();
       //print(z.getHealth());
       fill(z.getColor());
       ellipse(z.getPos().x,z.getPos().y+TILE/2,TILE*2/3,TILE*5/6);

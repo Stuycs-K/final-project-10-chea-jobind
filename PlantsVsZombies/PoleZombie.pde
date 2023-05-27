@@ -1,17 +1,17 @@
-public class DefaultZombie extends Zombie{
+public class PoleZombie extends Zombie{
   static final int COOLDOWN_=40;
   static final float SPEED = 0.5;
   static final color ZCOL = #767676;
   static final int ID = 1;
-  public DefaultZombie(int h, PImage sprite, PVector pos){
+  public PoleZombie(int h, PImage sprite, PVector pos){
     super(h,COOLDOWN_,SPEED,sprite,pos,ZCOL);
     setID(ID);
   }
-  public DefaultZombie(int h, PVector pos){
+  public PoleZombie(int h, PVector pos){
     super(h,COOLDOWN_,SPEED,null,pos,ZCOL);
     setID(ID);
   }
-  public DefaultZombie(){
+  public PoleZombie(){
     super(0,0,0,null,null, 0);
     setID(ID);
   }

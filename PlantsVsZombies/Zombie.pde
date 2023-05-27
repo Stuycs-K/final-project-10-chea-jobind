@@ -61,6 +61,9 @@ public abstract class Zombie {
   public void addPos(PVector p){
     position.add(p);
   }
+  public void setSpeed(float s){
+    speed = s;
+  }
   public void setHealth(int h){
     health = h;
   }
