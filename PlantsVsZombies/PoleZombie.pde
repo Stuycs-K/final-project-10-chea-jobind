@@ -30,12 +30,13 @@ public class PoleZombie extends Zombie{
   }
   */
   public void move(){
-    if(getCurPlant()==null&&!jumped){
+    if(getCurPlant()==null){
     addPos(new PVector(-getSpeed(),0));
-    } else{
-      addPos(new PVector(TILE,0));
+    } else if(!jumped){
+      addPos(new PVector(-TILE,0));
       jumped=true;
       setSpeed(0.5);
+      //setCurPlant(null);
     }
   }
 }

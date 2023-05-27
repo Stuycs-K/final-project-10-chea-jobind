@@ -61,3 +61,6 @@ Made Zombies stop and eat when they reach a plant.
 
 Coded adjustable eating speeds for different Zombies.
 Added Default and Cone zombies, with different colors and health.
+Added Pole vaulting and Bucket head zombies.
+Pole vaulters now have their appropriate movement phases.
+Reworked how zombies stop to eat plants.
