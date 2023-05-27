@@ -33,6 +33,11 @@ I made a manual framerate setting and adjusted plant cooldowns based on that var
 I also made plants display as circles instead of images to improve performance.
 David and I made the plants die when a zombie stops in front of them and deal enough damage.
 
+### 2023-05-27
+
+I fixed a bug where clicking while moving the mouse would not place a plant.
+I also made the suns produced by sunflowers accurate (not moving and 25 instead of 50).
+
 
 ## DAVID JOBIN
 
