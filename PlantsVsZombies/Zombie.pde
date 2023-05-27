@@ -67,7 +67,7 @@ public abstract class Zombie {
   }
   public void decrement(){
     currentCooldown--;
-    if(currentCooldown<1){
+    if(currentCooldown<0){
       currentCooldown = cooldown;
     }
   }

@@ -93,9 +93,9 @@ public class Lawn {
   Zombie spawnZombie(int ID){
     int row = (int)random(5);
     PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row);
-    Zombie z = new TestZombie(0,0,0,0,null,null);
+    Zombie z = new TestZombie(0,0,0,null,null);
     switch(ID){
-      case -1: z = new TestZombie(5,5,5,5.0,null,pos);
+      case -1: z = new TestZombie(5,5,5.0,null,pos);
     }
     zombies.add(z);
     return z;
@@ -112,6 +112,8 @@ public class Lawn {
       Zombie z = zombies.get(i);
       int[] pos = mouseToArr((int)z.getPos().x,(int)z.getPos().y);
       if(grid[pos[0]][pos[1]]!=null){
+        z.decrement();
+        //print(z.getCurrentCooldown());
         z.eatPlant(grid[pos[0]][pos[1]]);
       } else{
         z.move();

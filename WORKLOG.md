@@ -56,3 +56,7 @@ Animated Zombie movement
 ### 2023-05-26
 
 Made Zombies stop and eat when they reach a plant.
+
+### 2023-05-27
+
+Coded adjustable eating speeds for different Zombies.
