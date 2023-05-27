@@ -19,6 +19,7 @@ public class ConeZombie extends Zombie{
     setHealth(getHealth()-damage);
     return getHealth();
   }
+  /*
   public void eatPlant(Plant p){
     if(p==null)return;
     if(getCurrentCooldown()==0){
@@ -26,7 +27,10 @@ public class ConeZombie extends Zombie{
     }
     //decrement();
   }
+  */
+  /*
   public void move(){
     addPos(new PVector(-getSpeed(),0));
   }
+  */
 }

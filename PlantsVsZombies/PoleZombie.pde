@@ -1,8 +1,9 @@
 public class PoleZombie extends Zombie{
   static final int COOLDOWN_=40;
-  static final float SPEED = 0.5;
-  static final color ZCOL = #767676;
-  static final int ID = 1;
+  static final float SPEED = 1.2;
+  static final color ZCOL = #44E8DB;
+  static final int ID = 4;
+  private boolean jumped = false;
   public PoleZombie(int h, PImage sprite, PVector pos){
     super(h,COOLDOWN_,SPEED,sprite,pos,ZCOL);
     setID(ID);
@@ -19,6 +20,7 @@ public class PoleZombie extends Zombie{
     setHealth(getHealth()-damage);
     return getHealth();
   }
+  /*
   public void eatPlant(Plant p){
     if(p==null)return;
     if(getCurrentCooldown()==0){
@@ -26,7 +28,14 @@ public class PoleZombie extends Zombie{
     }
     //decrement();
   }
+  */
   public void move(){
+    if(getCurPlant()==null&&!jumped){
     addPos(new PVector(-getSpeed(),0));
+    } else{
+      addPos(new PVector(TILE,0));
+      jumped=true;
+      setSpeed(0.5);
+    }
   }
 }

@@ -105,6 +105,9 @@ public class Lawn {
       case 3:
         z = new BucketZombie(35,pos);
         break;
+      case 4:
+        z = new PoleZombie(7,pos);
+        break;
     }
     zombies.add(z);
     return z;
@@ -124,10 +127,13 @@ public class Lawn {
       if(grid[pos[0]][pos[1]]!=null){
         z.decrement();
         //print(z.getCurrentCooldown());
-        z.eatPlant(grid[pos[0]][pos[1]]);
+        z.setCurPlant(grid[pos[0]][pos[1]]);
+        z.eatPlant();
       } else{
-        z.move();
+        z.setCurPlant(null);
       }
+      //                                                                                                ZOMBIE MOVEMENT
+      z.move();
       if(z.getPos().x < 0) {
         zombies.remove(i);
         //END GAME

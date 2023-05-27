@@ -23,8 +23,8 @@ public abstract class Zombie {
   }
   //methods every
   public abstract int takeDamage(int damage);
-  public abstract void eatPlant(Plant p);
-  public abstract void move();
+  //public abstract void eatPlant(Plant p);
+  //public abstract void move();
   
   public int getHealth(){
     return health;
@@ -34,11 +34,27 @@ public abstract class Zombie {
     return damage;
   }
   */
+  public void move(){
+    if(getCurPlant()==null){
+      addPos(new PVector(-getSpeed(),0));
+    }
+  }
+  public void eatPlant(){
+    Plant p = getCurPlant();
+    if(p==null)return;
+    if(getCurrentCooldown()==0){
+      p.takeDamage();
+    }
+    //decrement();
+  }
   public int getCooldown(){
     return cooldown;
   }
   public int getCurrentCooldown(){
     return currentCooldown;
+  }
+  public Plant getCurPlant(){
+    return currentPlant;
   }
   public int getID(){
     return ID;
