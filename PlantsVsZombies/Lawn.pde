@@ -93,10 +93,11 @@ public class Lawn {
   Zombie spawnZombie(int ID){
     int row = (int)random(5);
     PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row);
-    Zombie z = new TestZombie();
+    Zombie z = new DefaultZombie();
     switch(ID){
-      case -1: z = new TestZombie(5,5.0,null,pos);
+      //case -1: z = new TestZombie(5,5.0,null,pos);
       case 1: z = new DefaultZombie(5,pos);
+      case 2: z = new ConeZombie(10,pos);
     }
     zombies.add(z);
     return z;
