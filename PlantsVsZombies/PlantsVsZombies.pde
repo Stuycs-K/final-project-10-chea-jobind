@@ -31,7 +31,7 @@ void draw() {
   sm.add(sm.findSun());
 }
 
-void mouseClicked() {
+void mouseReleased() {
   menu.processClick(lawn);
   menu.update();
 }
