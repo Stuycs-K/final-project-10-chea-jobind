@@ -55,7 +55,8 @@ Animated Zombie movement
 
 ### 2023-05-26
 
-Made Zombies stop and eat when they reach a plant.
+Made Zombies stop and eat when they reach a plant. Attempted to create a file reading system to
+pace the spawning of zombies throughout the level. Unfortunately, Processing does not seem to play nicely with scanners.
 
 ### 2023-05-27
 
