@@ -1,7 +1,7 @@
 public abstract class Zombie {
   public Plant currentPlant;
   private int health;
-  private int damage;
+  //private int damage;
   private int cooldown;
   private int currentCooldown;
   private float speed;
@@ -10,9 +10,9 @@ public abstract class Zombie {
   private PVector position;
   private color zCol;
   
-  public Zombie(int health_, int damage_, int cooldown_, float speed_, PImage sprite_, PVector position_, color zCol_){
+  public Zombie(int health_, /*int damage_,*/ int cooldown_, float speed_, PImage sprite_, PVector position_, color zCol_){
     health=health_;
-    damage=damage_;
+    //damage=damage_;
     cooldown=cooldown_;
     currentCooldown = cooldown_;
     speed=speed_;
@@ -29,9 +29,11 @@ public abstract class Zombie {
   public int getHealth(){
     return health;
   }
+  /*
   public int getDamage(){
     return damage;
   }
+  */
   public int getCooldown(){
     return cooldown;
   }

@@ -13,4 +13,12 @@ public class Projectile {
     active = true;
     slow = slo;
   }
+  public Projectile(PVector pos, PVector vel, int siz, int dmg){
+    position = pos;
+    velocity = vel;
+    size = siz;
+    damage = dmg;
+    active = true;
+    slow = false;
+  }
 }

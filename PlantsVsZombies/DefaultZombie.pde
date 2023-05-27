@@ -1,11 +1,14 @@
-public class TestZombie extends Zombie{
+public class DefaultZombie extends Zombie{
   static final int COOLDOWN_=20;
-  public TestZombie(int h,float s, PImage sprite, PVector pos){
-    super(h,COOLDOWN_,s,sprite,pos,color(150,150,150));
-    setID(-1);
+  static final float SPEED = 1;
+  static final color ZCOL = #969696;
+  public DefaultZombie(int h, PImage sprite, PVector pos){
+    super(h,COOLDOWN_,SPEED,sprite,pos,ZCOL);
+    setID(1);
   }
-  public TestZombie(){
-    super(0,0,0.0,null,null,0);
+  public DefaultZombie(int h, PVector pos){
+    super(h,COOLDOWN_,SPEED,null,pos,ZCOL);
+    setID(1);
   }
   public int takeDamage(int damage){
     setHealth(getHealth()-damage);
