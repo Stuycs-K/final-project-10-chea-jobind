@@ -3,7 +3,7 @@ public class ProducingPlant extends Plant {
   public ProducingPlant(int i) {
     super(i);
     if(i == SUNFLOWER) {
-      sunAmount = 50;
+      sunAmount = 25;
     }
     if(i == WALLNUT) {
       sunAmount = 0;
@@ -12,7 +12,7 @@ public class ProducingPlant extends Plant {
   public Object tick() {
     if(getCooldown() == 0 && sunAmount > 0) {
       resetCooldown();
-      return new Sun(new PVector(int(random(LEFTBORDER, RIGHTBORDER)), TOPBORDER), sunAmount);
+      return new Sun(new PVector(0, 0), sunAmount, false);
     }
     tickCooldown();
     return null;
