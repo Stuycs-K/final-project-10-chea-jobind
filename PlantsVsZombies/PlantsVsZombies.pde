@@ -20,7 +20,7 @@ void setup() {
   menu = new Menu(level);
   lawn.display();
   menu.display();
-  lawn.spawnZombie(1);
+  lawn.spawnZombie(2);
 }
 
 void draw() {

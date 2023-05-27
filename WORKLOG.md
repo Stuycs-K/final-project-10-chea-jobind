@@ -60,3 +60,4 @@ Made Zombies stop and eat when they reach a plant.
 ### 2023-05-27
 
 Coded adjustable eating speeds for different Zombies.
+Added Default and Cone zombies, with different colors and health.
