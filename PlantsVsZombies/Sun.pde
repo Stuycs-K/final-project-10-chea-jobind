@@ -1,15 +1,22 @@
 public class Sun {
-  PVector position;
-  int amount;
-  public Sun(PVector p, int a) {
+  private PVector position;
+  private int amount;
+  private boolean moving;
+  public Sun(PVector p, int a, boolean m) {
     position = p;
     amount = a;
+    moving = m;
   }
   public PVector getPos() {
     return position;
   }
+  public void setPos(PVector p) {
+    position = p;
+  }
   public PVector move() {
-    position.y += 2.5;
+    if(moving) {
+      position.y += 2.5;
+    }
     return position;
   }
   public int getSun() {
