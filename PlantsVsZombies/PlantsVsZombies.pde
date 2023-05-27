@@ -2,6 +2,7 @@ Lawn lawn;
 Menu menu;
 int level;
 SunManager sm;
+//ProgressReader r;
 public static final int FRAMERATE = 24;
 
 void setup() {
@@ -12,9 +13,10 @@ void setup() {
   print(john.getHealth());
   print(john.takeDamage(10));
   */
-  sm = new SunManager();
-  lawn = new Lawn(sm);
   level = 11;
+  sm = new SunManager();
+  //r = new ProgressReader(level);
+  lawn = new Lawn(sm /*, r*/);
   menu = new Menu(level);
   lawn.display();
   menu.display();

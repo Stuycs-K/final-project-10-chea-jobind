@@ -9,11 +9,16 @@ public class Lawn {
   ArrayList<Projectile> projectiles;
   ArrayList<Zombie> zombies;
   SunManager sunM;
-  public Lawn(SunManager s) {
+  //ProgressReader r;
+  boolean finished;
+  
+  public Lawn(SunManager s /*, ProgressReader r_*/) {
+    finished=false;
     grid = new Plant[5][9];
     projectiles = new ArrayList<Projectile>();
     zombies = new ArrayList<Zombie>();
     sunM = s;
+    //r = r_;
   }
   //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
@@ -116,6 +121,8 @@ public class Lawn {
         //END GAME
       }
     }
+    //This line calls the "ProgressReader" which helps encapsulate File management
+    //spawnZombie(r.next());
   }
   void processPlants() {
     for(int i = 0; i < grid.length; ++i) {
