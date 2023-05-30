@@ -111,6 +111,7 @@ public class Lawn {
         }
       }
     }
+    renderProjectiles();
   }
   Zombie spawnZombie(int ID){
     int row = (int)random(5);
@@ -211,7 +212,9 @@ public class Lawn {
     int ZRAD = TILE*3/4;
     for(int i=0; i<projectiles.size(); i++){
       Projectile p = projectiles.get(i);
+      p.move();
       Zombie z;
+      //println(p.getPos().x);
       for(int j=0; j<zombies.size(); j++){
         z = zombies.get(j);
         if(PVector.sub(z.getPos(),p.getPos()).mag()<p.getSize()+ZRAD){
