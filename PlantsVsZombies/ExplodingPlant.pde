@@ -2,9 +2,14 @@ public class ExplodingPlant extends Plant {
   private int radius;
   private int damage;
   public ExplodingPlant(int i) {
-    super(CHERRYBOMB);
-    damage = 90;
-    radius = 225; // 1.5 squares
+    super(i);
+    if(i == CHERRYBOMB) {
+      damage = 90;
+      radius = 225; // 1.5 squares
+    } else {
+      damage = 90;
+      damage = 75;
+    }
   }
   public Object tick() {
     if(getCooldown() == 0) {

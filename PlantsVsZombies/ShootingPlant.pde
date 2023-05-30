@@ -1,6 +1,6 @@
 public class ShootingPlant extends Plant {
   public ShootingPlant(int i) {
-    super(PEASHOOTER);
+    super(i);
   }
   public Object tick() {
     if(getCooldown() == 0) {
