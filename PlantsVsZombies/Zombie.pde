@@ -1,7 +1,7 @@
 public abstract class Zombie {
   public Plant currentPlant;
   private int health;
-  private int damage;
+  //private int damage;
   private int cooldown;
   private int currentCooldown;
   private float speed;
@@ -10,9 +10,9 @@ public abstract class Zombie {
   private PVector position;
   private color zCol;
   
-  public Zombie(int health_, int damage_, int cooldown_, float speed_, PImage sprite_, PVector position_, color zCol_){
+  public Zombie(int health_, /*int damage_,*/ int cooldown_, float speed_, PImage sprite_, PVector position_, color zCol_){
     health=health_;
-    damage=damage_;
+    //damage=damage_;
     cooldown=cooldown_;
     currentCooldown = cooldown_;
     speed=speed_;
@@ -23,20 +23,38 @@ public abstract class Zombie {
   }
   //methods every
   public abstract int takeDamage(int damage);
-  public abstract void eatPlant(Plant p);
-  public abstract void move();
+  //public abstract void eatPlant(Plant p);
+  //public abstract void move();
   
   public int getHealth(){
     return health;
   }
+  /*
   public int getDamage(){
     return damage;
+  }
+  */
+  public void move(){
+    if(getCurPlant()==null){
+      addPos(new PVector(-getSpeed(),0));
+    }
+  }
+  public void eatPlant(){
+    Plant p = getCurPlant();
+    if(p==null)return;
+    if(getCurrentCooldown()==0){
+      p.takeDamage();
+    }
+    //decrement();
   }
   public int getCooldown(){
     return cooldown;
   }
   public int getCurrentCooldown(){
     return currentCooldown;
+  }
+  public Plant getCurPlant(){
+    return currentPlant;
   }
   public int getID(){
     return ID;
@@ -59,6 +77,9 @@ public abstract class Zombie {
   public void addPos(PVector p){
     position.add(p);
   }
+  public void setSpeed(float s){
+    speed = s;
+  }
   public void setHealth(int h){
     health = h;
   }
@@ -67,7 +88,7 @@ public abstract class Zombie {
   }
   public void decrement(){
     currentCooldown--;
-    if(currentCooldown<1){
+    if(currentCooldown<0){
       currentCooldown = cooldown;
     }
   }
