@@ -43,6 +43,12 @@ I also made the suns produced by sunflowers accurate (not moving and 25 instead 
 I made SunManager spawn the sun that falls every 10 seconds without sunflowers during the day.
 I also cleaned up some code and fixed some minor bugs like framerate not being set properly.
 
+### 2023-05-30
+
+I made all the plant classes, adding special tick functions where necessary.
+I then changed the parent classes (e.g. ShootingPlant) to adjust for these new subclasses.
+I also made the sun currency system fully work and increased starting sun to 500 for testing.
+
 
 ## DAVID JOBIN
 
