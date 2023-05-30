@@ -6,6 +6,7 @@ public static int TILE = 150;
 
 public class Lawn {
   Plant[][] grid;
+  int[] laneZombies = new int[] {0,0,0,0,0};
   ArrayList<Projectile> projectiles;
   ArrayList<Zombie> zombies;
   SunManager sunM;
@@ -92,21 +93,22 @@ public class Lawn {
   }
   Zombie spawnZombie(int ID){
     int row = (int)random(5);
+    laneZombies[row]++;
     PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row);
     Zombie z = new DefaultZombie();
     switch(ID){
       //case -1: z = new TestZombie(5,5.0,null,pos);
       case 1:
-        z = new DefaultZombie(5,pos);
+        z = new DefaultZombie(6,pos);
         break;
       case 2:
-        z = new ConeZombie(10,pos);
+        z = new ConeZombie(15,pos);
         break;
       case 3:
         z = new BucketZombie(35,pos);
         break;
       case 4:
-        z = new PoleZombie(7,pos);
+        z = new PoleZombie(9,pos);
         break;
     }
     zombies.add(z);
@@ -134,8 +136,10 @@ public class Lawn {
       }
       //                                                                                                ZOMBIE MOVEMENT
       z.move();
-      if(z.getPos().x < 0) {
+      if(z.getPos().x < 0||z.getHealth()<1) {
         zombies.remove(i);
+        laneZombies[mouseToArr((int)z.getPos().x,(int)z.getPos().y)[0]]--;
+        i--;
         //END GAME
       }
     }
@@ -169,6 +173,19 @@ public class Lawn {
           if(s != null) {
             sunM.add(s);
           }
+        }
+      }
+    }
+  }
+  void tickProjectiles(){
+    int ZRAD = TILE*3/4;
+    for(int i=0; i<projectiles.size(); i++){
+      Projectile p = projectiles.get(i);
+      Zombie z;
+      for(int j=0; j<zombies.size(); j++){
+        z = zombies.get(j);
+        if(PVector.sub(z.getPos(),p.getPos()).mag()<p.getSize()+ZRAD){
+          
         }
       }
     }

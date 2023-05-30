@@ -21,4 +21,16 @@ public class Projectile {
     active = true;
     slow = false;
   }
+  public void move(){
+    position.add(velocity);
+  }
+  public PVector getPos(){
+    return position;
+  }
+  public int getSize(){
+    return size;
+  }
+  public int getDamage(){
+    return damage;
+  }
 }
