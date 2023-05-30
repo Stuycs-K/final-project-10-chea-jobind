@@ -27,6 +27,9 @@ public class Projectile {
   public PVector getPos(){
     return position;
   }
+  public PVector getVelocity(){
+    return velocity;
+  }
   public int getSize(){
     return size;
   }

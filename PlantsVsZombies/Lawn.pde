@@ -191,6 +191,16 @@ public class Lawn {
           break;
         }
       }
+      if(p.getVelocity().mag()==0||p.getPos().x>width){
+        projectiles.remove(i);
+        i--;
+      }
+    }
+  }
+  void renderProjectiles(){
+    for(Projectile p: projectiles){
+      fill(0,0,150);
+      ellipse(p.getPos().x,p.getPos().y,p.getSize(),p.getSize());
     }
   }
 }
