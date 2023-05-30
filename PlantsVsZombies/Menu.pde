@@ -1,8 +1,7 @@
 public class Menu {
-  ArrayList<Button> buttons;
-  int border;
-  int currentPlant;
-  int sun;
+  private ArrayList<Button> buttons;
+  private int border;
+  private int currentPlant;
   public Menu(int level) {
     buttons = new ArrayList<Button>();
     border = 120;
@@ -15,7 +14,6 @@ public class Menu {
     }
     buttons.add(new Button(LEFTBORDER + 50 + 110 * i, LEFTBORDER + 150 + 110 * i, 10, 110, REMOVE));
     currentPlant = 1;
-    sun = 50;
   }
   void processClick(Lawn l) {
     if(mouseX < LEFTBORDER || mouseY > BOTTOMBORDER || mouseX > RIGHTBORDER) {

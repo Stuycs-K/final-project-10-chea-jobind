@@ -171,6 +171,8 @@ public class Lawn {
           println(grid[i][j].getCooldown());
           Sun s = (Sun)(grid[i][j].tick());
           if(s != null) {
+            int[] coords = arrToMouse(i, j);
+            s.setPos(new PVector(coords[0] + 75, coords[1]));
             sunM.add(s);
           }
         }

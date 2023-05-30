@@ -3,11 +3,11 @@ Menu menu;
 int level;
 SunManager sm;
 //ProgressReader r;
-public static final int FRAMERATE = 24;
+public static final int FRAMERATE = 30;
 
 void setup() {
   size(1600, 900);
-  frameRate(frameRate);
+  frameRate(FRAMERATE);
   /*
   Zombie john = new TestZombie(100,1,1,1.0,null);
   print(john.getHealth());
@@ -34,7 +34,7 @@ void draw() {
   sm.add(sm.findSun());
 }
 
-void mouseClicked() {
+void mouseReleased() {
   menu.processClick(lawn);
   menu.update();
 }

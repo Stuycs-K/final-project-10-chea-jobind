@@ -1,9 +1,11 @@
 public class SunManager {
+  private int cooldown;
   private int sunAmount;
   private ArrayList<Sun> sunList;
   public SunManager() {
     sunAmount = 50;
     sunList = new ArrayList<Sun>();
+    cooldown = 10 * FRAMERATE;
   }
   public void display() {
     stroke(160, 82, 45);
@@ -12,12 +14,11 @@ public class SunManager {
     fill(255);
     text(sunAmount, 10, 10);
   }
-  private boolean sunPresent() {
-    return sunList.size() > 0;
-  }
   public int findSun() {
-    if(!sunPresent()) {
-      return 0;
+    --cooldown;
+    if(cooldown <= 0) {
+      cooldown = 10 * FRAMERATE;
+      sunList.add(new Sun(new PVector(random(LEFTBORDER, RIGHTBORDER), TOPBORDER), 25, true));
     }
     for(int i = 0; i < sunList.size(); ++i) {
       Sun s = sunList.get(i);
