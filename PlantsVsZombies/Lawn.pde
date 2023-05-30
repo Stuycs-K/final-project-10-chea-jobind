@@ -185,7 +185,10 @@ public class Lawn {
       for(int j=0; j<zombies.size(); j++){
         z = zombies.get(j);
         if(PVector.sub(z.getPos(),p.getPos()).mag()<p.getSize()+ZRAD){
-          
+          z.takeDamage(p.getDamage());
+          projectiles.remove(i);
+          i--;
+          break;
         }
       }
     }
