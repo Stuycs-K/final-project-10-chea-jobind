@@ -20,24 +20,45 @@ public class Lawn {
     sunM = s;
     //r = r_;
   }
+  //Returns a new plant based on the ID
+  public Plant findPlant(int i) {
+    if(i <= BLANK) {
+      return null;
+    }
+    if(i == PEASHOOTER) {
+      return new PeaShooter();
+    }
+    if(i == SUNFLOWER) {
+      return new Sunflower();
+    }
+    if(i == CHERRYBOMB) {
+      return new CherryBomb();
+    }
+    if(i == WALLNUT) {
+      return new Wallnut();
+    }
+    if(i == POTATOMINE) {
+      return new PotatoMine();
+    }
+    if(i == SNOWPEA) {
+      return new SnowPea();
+    }
+    if(i == REPEATER) {
+      return new Repeater();
+    }
+    if(i == CHOMPER) {
+      return new Chomper();
+    }
+    return null;
+  }
+  
   //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
-    int[] plantCoord = mouseToArr(x,y);
-    Plant p;
-    if(plant == BLANK) {
-      p = null;
-    } else {
-      if(plant == PEASHOOTER || plant == SNOWPEA || plant == CHOMPER || plant == REPEATER) {
-        p = new ShootingPlant(plant);
-      } else if(plant == CHERRYBOMB || plant == POTATOMINE) {
-        p = new ExplodingPlant(plant);
-      } else if(plant == SUNFLOWER || plant == WALLNUT) {
-        p = new ProducingPlant(plant);
-      } else {
-        p = null;
-      }
+    if(sunM.remove(plantCosts[plant])) {
+      int[] plantCoord = mouseToArr(x,y);
+      Plant p = findPlant(plant);
+      grid[plantCoord[0]][plantCoord[1]] = p;
     }
-    grid[plantCoord[0]][plantCoord[1]] = p;
   }
   //Converts from mouseX mouseY to row-column paradigm.
   int[] mouseToArr(int x, int y){
@@ -128,6 +149,13 @@ public class Lawn {
         z.decrement();
         //print(z.getCurrentCooldown());
         z.setCurPlant(grid[pos[0]][pos[1]]);
+        if(z.getCurPlant().getID() == POTATOMINE) {
+          if(z.getCurPlant().getCooldown() == 0) {
+            zombies.remove(i);
+            grid[pos[0]][pos[1]] = null;
+            continue;
+          }
+        }
         z.eatPlant();
       } else{
         z.setCurPlant(null);
