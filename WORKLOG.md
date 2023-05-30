@@ -81,3 +81,9 @@ Added Default and Cone zombies, with different colors and health.
 Added Pole vaulting and Bucket head zombies.
 Pole vaulters now have their appropriate movement phases.
 Reworked how zombies stop to eat plants.
+
+### 2023-05-30
+
+Added projectile movement.
+Projectiles collide with zombies and are removed from the lawn.
+Added projectile rendering.
