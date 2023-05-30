@@ -38,6 +38,11 @@ David and I made the plants die when a zombie stops in front of them and deal en
 I fixed a bug where clicking while moving the mouse would not place a plant.
 I also made the suns produced by sunflowers accurate (not moving and 25 instead of 50).
 
+### 2023-05-29
+
+I made SunManager spawn the sun that falls every 10 seconds without sunflowers during the day.
+I also cleaned up some code and fixed some minor bugs like framerate not being set properly.
+
 
 ## DAVID JOBIN
 
