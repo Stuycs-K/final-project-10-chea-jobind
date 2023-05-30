@@ -164,7 +164,7 @@ public class Lawn {
           }
         }
         if(id == SUNFLOWER || id == WALLNUT) {
-          println(grid[i][j].getCooldown());
+          //println(grid[i][j].getCooldown());
           Sun s = (Sun)(grid[i][j].tick());
           if(s != null) {
             int[] coords = arrToMouse(i, j);
