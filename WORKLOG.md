@@ -67,3 +67,11 @@ Animated Zombie movement
 
 Made Zombies stop and eat when they reach a plant. Attempted to create a file reading system to
 pace the spawning of zombies throughout the level. Unfortunately, Processing does not seem to play nicely with scanners.
+
+### 2023-05-27
+
+Coded adjustable eating speeds for different Zombies.
+Added Default and Cone zombies, with different colors and health.
+Added Pole vaulting and Bucket head zombies.
+Pole vaulters now have their appropriate movement phases.
+Reworked how zombies stop to eat plants.

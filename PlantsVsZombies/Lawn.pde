@@ -93,16 +93,29 @@ public class Lawn {
   Zombie spawnZombie(int ID){
     int row = (int)random(5);
     PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row);
-    Zombie z = new TestZombie(0,0,0,0,null,null);
+    Zombie z = new DefaultZombie();
     switch(ID){
-      case -1: z = new TestZombie(5,5,5,5.0,null,pos);
+      //case -1: z = new TestZombie(5,5.0,null,pos);
+      case 1:
+        z = new DefaultZombie(5,pos);
+        break;
+      case 2:
+        z = new ConeZombie(10,pos);
+        break;
+      case 3:
+        z = new BucketZombie(35,pos);
+        break;
+      case 4:
+        z = new PoleZombie(7,pos);
+        break;
     }
     zombies.add(z);
     return z;
   }
   void renderZombies(){
+    lawn.display();
     for(Zombie z: zombies){
-      lawn.display();
+      //print(z.getHealth());
       fill(z.getColor());
       ellipse(z.getPos().x,z.getPos().y+TILE/2,TILE*2/3,TILE*5/6);
     }
@@ -112,10 +125,15 @@ public class Lawn {
       Zombie z = zombies.get(i);
       int[] pos = mouseToArr((int)z.getPos().x,(int)z.getPos().y);
       if(grid[pos[0]][pos[1]]!=null){
-        z.eatPlant(grid[pos[0]][pos[1]]);
+        z.decrement();
+        //print(z.getCurrentCooldown());
+        z.setCurPlant(grid[pos[0]][pos[1]]);
+        z.eatPlant();
       } else{
-        z.move();
+        z.setCurPlant(null);
       }
+      //                                                                                                ZOMBIE MOVEMENT
+      z.move();
       if(z.getPos().x < 0) {
         zombies.remove(i);
         //END GAME
