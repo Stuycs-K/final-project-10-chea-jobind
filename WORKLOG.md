@@ -88,3 +88,14 @@ Reworked how zombies stop to eat plants.
 Added projectile movement.
 Projectiles collide with zombies and are removed from the lawn.
 Added projectile rendering.
+Tweaked shooting speed and zombie health.
+Bugfixes on zombie & projectile collision.
+
+### 2023-05-31
+
+Tweaked zombie eating speed.
+Added distinct plant colors. Changed stroke to black.
+Tweaked shooting speed (again).
+Fixed Explosives not dealing collateral damage.
+Made shooting plants wait until a zombie is in their lane to shoot,
+which should keep the game from lagging (n^2 behavior).

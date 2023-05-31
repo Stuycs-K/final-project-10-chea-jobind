@@ -14,7 +14,7 @@ public class ExplodingPlant extends Plant {
   public Object tick() {
     if(getCooldown() == 0) {
       resetCooldown();
-      return new Projectile(new PVector(0, 0), new PVector(0, 0), radius * 2, damage, false);
+      return new Projectile(new PVector(0, 0), new PVector(0, 0), radius, damage, false);
     }
     tickCooldown();
     return null;

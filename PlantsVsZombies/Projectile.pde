@@ -36,4 +36,7 @@ public class Projectile {
   public int getDamage(){
     return damage;
   }
+  public void setPos(PVector p){
+    position=p;
+  }
 }
