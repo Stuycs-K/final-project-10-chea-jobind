@@ -98,11 +98,7 @@ public class Lawn {
           image(plantImages[grid[i][j].getID()], imageCoord[0], imageCoord[1], 150, 150);
           fill(plantColors[grid[i][j].id]);
           stroke(0);
-<<<<<<< HEAD
-          //circle(imageCoord[0] + 75, imageCoord[1] + 75, 75);
-=======
-          circle(imageCoord[0] + 75, imageCoord[1] + 75, grid[i][j].size);
->>>>>>> main
+          //circle(imageCoord[0] + 75, imageCoord[1] + 75, grid[i][j].size);
         }
         /*
         if(grid[i][j] == null) {
