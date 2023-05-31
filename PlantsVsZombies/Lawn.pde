@@ -112,6 +112,10 @@ public class Lawn {
       }
     }
     renderProjectiles();
+    fill(255, 248, 203);
+    stroke(255, 248, 203);
+    rect(0, TOPBORDER, LEFTBORDER, height - TOPBORDER);
+    rect(RIGHTBORDER, 0, width - RIGHTBORDER, height);
   }
   Zombie spawnZombie(int ID){
     int row = (int)random(5);
@@ -201,7 +205,7 @@ public class Lawn {
           Sun s = (Sun)(grid[i][j].tick());
           if(s != null) {
             int[] coords = arrToMouse(i, j);
-            s.setPos(new PVector(coords[0] + 75, coords[1]));
+            s.setPos(new PVector(coords[0] + 75, coords[1] + 75));
             sunM.add(s);
           }
         }
