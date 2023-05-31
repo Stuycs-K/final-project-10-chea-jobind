@@ -88,3 +88,5 @@ Reworked how zombies stop to eat plants.
 Added projectile movement.
 Projectiles collide with zombies and are removed from the lawn.
 Added projectile rendering.
+Tweaked shooting speed and zombie health.
+Bugfixes on zombie+projectile collision.
