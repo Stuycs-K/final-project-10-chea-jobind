@@ -3,11 +3,9 @@ public class Chomper extends ShootingPlant {
     super(CHOMPER);
   }
   public Object tick() {
-    if(getCooldown() == 0) {
-      resetCooldown();
-      return new Projectile(new PVector(0, 0), new PVector(0, 0), 50, 120, false);
-    } 
-    tickCooldown();
+    if(getCooldown() != 0) {
+      tickCooldown();
+    }
     return null;
   }
 }
