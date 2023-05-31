@@ -244,7 +244,7 @@ public class Lawn {
   }
   void renderProjectiles(){
     for(Projectile p: projectiles){
-      fill(0,0,150);
+      fill(p.getColor());
       ellipse(p.getPos().x,p.getPos().y,p.getSize()*2,p.getSize()*2);
     }
   }

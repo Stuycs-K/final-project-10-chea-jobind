@@ -99,3 +99,4 @@ Tweaked shooting speed (again).
 Fixed Explosives not dealing collateral damage.
 Made shooting plants wait until a zombie is in their lane to shoot,
 which should keep the game from lagging (n^2 behavior).
+Added different colors for different projectiles.
