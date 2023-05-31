@@ -9,7 +9,7 @@ static int SNOWPEA = 6;
 static int CHOMPER = 7;
 static int REPEATER = 8;
 public String[] plantNames = {"blank", "pea shooter", "sunflower", "cherry bomb", "wall-nut", "potato mine", "snow pea", "chomper" , "repeater"};
-public String[] plantImageNames = {"noplant.png", "peashooter.jpg", "sunflower.jpg", "cherrybomb.png", "wallnut.png", "potatomine.jpg", "snowpea.png", "chomper.png", "repeater.jpg"};
+public String[] plantImageNames = {"noplant.png", "peashooter.png", "sunflower.png", "cherrybomb.png", "wallnut.png", "potatomine.png", "snowpea.png", "chomper.png", "repeater.png"};
 
 public class Button {
   private int x0, y0, x1, y1;
@@ -40,7 +40,7 @@ public class Button {
     rect(x0, y0, x1 - x0, y1 - y0);
     if(plantType > 0) {
       //text(plantNames[plantType], x0, y0);
-      image(loadImage(plantImageNames[plantType]), x0, y0, 100, 100);
+      image(plantImages[plantType], x0, y0, 100, 100);
     }
     if(plantType == -1) {
       text("remove", x0, y0);
