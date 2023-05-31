@@ -1,6 +1,6 @@
 public class ExplodingPlant extends Plant {
-  private int radius;
-  private int damage;
+  int radius;
+  int damage;
   public ExplodingPlant(int i) {
     super(i);
     if(i == CHERRYBOMB) {

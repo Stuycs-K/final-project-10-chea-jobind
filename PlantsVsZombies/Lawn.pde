@@ -98,7 +98,11 @@ public class Lawn {
           image(plantImages[grid[i][j].getID()], imageCoord[0], imageCoord[1], 150, 150);
           fill(plantColors[grid[i][j].id]);
           stroke(0);
+<<<<<<< HEAD
           //circle(imageCoord[0] + 75, imageCoord[1] + 75, 75);
+=======
+          circle(imageCoord[0] + 75, imageCoord[1] + 75, grid[i][j].size);
+>>>>>>> main
         }
         /*
         if(grid[i][j] == null) {
@@ -253,7 +257,7 @@ public class Lawn {
   }
   void renderProjectiles(){
     for(Projectile p: projectiles){
-      fill(0,0,150);
+      fill(p.getColor());
       ellipse(p.getPos().x,p.getPos().y,p.getSize()*2,p.getSize()*2);
     }
   }

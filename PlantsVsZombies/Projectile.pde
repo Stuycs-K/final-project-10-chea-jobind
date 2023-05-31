@@ -3,6 +3,7 @@ public class Projectile {
   PVector velocity;
   int size;
   int damage;
+  private int pColor=#10E331;
   boolean active;
   boolean slow;
   public Projectile(PVector pos, PVector vel, int siz, int dmg, boolean slo) {
@@ -38,5 +39,11 @@ public class Projectile {
   }
   public void setPos(PVector p){
     position=p;
+  }
+  public void setColor(int c){
+    pColor = c;
+  }
+  public int getColor(){
+    return pColor;
   }
 }
