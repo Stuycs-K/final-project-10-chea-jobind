@@ -32,7 +32,7 @@ void setup() {
   plantImages[7] = loadImage("chomper.png");
   plantImages[8] = loadImage("repeater.png");
   menu.display();
-  lawn.spawnZombie(1);
+  //lawn.spawnZombie(1);
   //lawn.spawnZombie(2);
   //lawn.spawnZombie(3);
   //lawn.spawnZombie(4);
@@ -40,6 +40,10 @@ void setup() {
 
 void draw() {
   //background(100);
+  int zSeed = 1+(int)random(8*24);
+  if(zSeed-4<=0){
+    lawn.spawnZombie(zSeed);
+  }
   lawn.processPlants();
   lawn.display();
   lawn.renderZombies();
