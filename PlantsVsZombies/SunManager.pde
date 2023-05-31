@@ -18,7 +18,7 @@ public class SunManager {
     --cooldown;
     if(cooldown <= 0) {
       cooldown = 10 * FRAMERATE;
-      sunList.add(new Sun(new PVector(random(LEFTBORDER, RIGHTBORDER), TOPBORDER), 25, true));
+      sunList.add(new Sun(new PVector(random(LEFTBORDER, RIGHTBORDER), TOPBORDER + 25), 25, true));
     }
     for(int i = 0; i < sunList.size(); ++i) {
       Sun s = sunList.get(i);
