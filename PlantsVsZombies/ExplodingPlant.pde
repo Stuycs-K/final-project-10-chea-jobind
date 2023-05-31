@@ -3,6 +3,7 @@ public class ExplodingPlant extends Plant {
   int damage;
   public ExplodingPlant(int i) {
     super(i);
+    resetCooldown();
     if(i == CHERRYBOMB) {
       damage = 90;
       radius = 225; // 1.5 squares

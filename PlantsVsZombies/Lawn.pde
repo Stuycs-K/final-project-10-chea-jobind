@@ -55,10 +55,14 @@ public class Lawn {
   
   //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
-    if(sunM.remove(plantCosts[plant])) {
-      int[] plantCoord = mouseToArr(x,y);
-      Plant p = findPlant(plant);
-      grid[plantCoord[0]][plantCoord[1]] = p;
+    int[] plantCoord = mouseToArr(x,y);
+    if(grid[plantCoord[0]][plantCoord[1]] == null) {
+      if(sunM.remove(plantCosts[plant])) {
+        Plant p = findPlant(plant);
+        grid[plantCoord[0]][plantCoord[1]] = p;
+      }
+    } else if(plant <= BLANK) {
+      grid[plantCoord[0]][plantCoord[1]] = null;
     }
   }
   //Converts from mouseX mouseY to row-column paradigm.
@@ -91,10 +95,10 @@ public class Lawn {
         rect(125 + 150 * j, 120 + 150 * i, 150, 150);
         if(grid[i][j] != null) {
           int[] imageCoord = arrToMouse(i, j);
-          //image(loadImage(plantImageNames[grid[i][j].getID()]), imageCoord[0], imageCoord[1], 150, 150);
+          image(plantImages[grid[i][j].getID()], imageCoord[0], imageCoord[1], 150, 150);
           fill(plantColors[grid[i][j].id]);
           stroke(0);
-          circle(imageCoord[0] + 75, imageCoord[1] + 75, grid[i][j].size);
+          //circle(imageCoord[0] + 75, imageCoord[1] + 75, grid[i][j].size);
         }
         /*
         if(grid[i][j] == null) {
@@ -156,10 +160,15 @@ public class Lawn {
         z.decrement();
         //print(z.getCurrentCooldown());
         z.setCurPlant(grid[pos[0]][pos[1]]);
-        if(z.getCurPlant().getID() == POTATOMINE) {
+        if(z.getCurPlant().getID() == POTATOMINE || z.getCurPlant().getID() == CHOMPER) {
+          //println(z.getCurPlant().getCooldown());
           if(z.getCurPlant().getCooldown() == 0) {
             zombies.remove(i);
-            grid[pos[0]][pos[1]] = null;
+            if(z.getCurPlant().getID() == POTATOMINE) {
+              grid[pos[0]][pos[1]] = null;
+            } else {
+              grid[pos[0]][pos[1]].resetCooldown();
+            }
             continue;
           }
         }
