@@ -120,21 +120,21 @@ public class Lawn {
   Zombie spawnZombie(int ID){
     int row = (int)random(5);
     laneZombies[row]++;
-    PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row);
+    PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row+TILE/2);
     Zombie z = new DefaultZombie();
     switch(ID){
       //case -1: z = new TestZombie(5,5.0,null,pos);
       case 1:
-        z = new DefaultZombie(6,pos);
+        z = new DefaultZombie(12,pos);
         break;
       case 2:
-        z = new ConeZombie(15,pos);
+        z = new ConeZombie(24,pos);
         break;
       case 3:
-        z = new BucketZombie(35,pos);
+        z = new BucketZombie(45,pos);
         break;
       case 4:
-        z = new PoleZombie(9,pos);
+        z = new PoleZombie(16,pos);
         break;
     }
     zombies.add(z);
@@ -145,7 +145,7 @@ public class Lawn {
     for(Zombie z: zombies){
       //print(z.getHealth());
       fill(z.getColor());
-      ellipse(z.getPos().x,z.getPos().y+TILE/2,TILE*2/3,TILE*5/6);
+      ellipse(z.getPos().x,z.getPos().y,TILE*2/3,TILE*5/6);
     }
   }
   void tickZombies(){
@@ -190,6 +190,7 @@ public class Lawn {
         if(id == PEASHOOTER || id == SNOWPEA || id == CHOMPER || id == REPEATER) {
           Projectile p = (Projectile)(grid[i][j].tick());
           if(p != null) {
+            p.setPos(new PVector(LEFTBORDER+j*TILE+TILE/2,TOPBORDER+i*TILE+TILE/2));
             projectiles.add(p);
           }
         }
@@ -213,7 +214,7 @@ public class Lawn {
     }
   }
   void tickProjectiles(){
-    int ZRAD = TILE*3/4;
+    int ZRAD = TILE*1/4;
     for(int i=0; i<projectiles.size(); i++){
       Projectile p = projectiles.get(i);
       p.move();
@@ -237,7 +238,7 @@ public class Lawn {
   void renderProjectiles(){
     for(Projectile p: projectiles){
       fill(0,0,150);
-      ellipse(p.getPos().x,p.getPos().y,p.getSize(),p.getSize());
+      ellipse(p.getPos().x,p.getPos().y,p.getSize()*2,p.getSize()*2);
     }
   }
 }

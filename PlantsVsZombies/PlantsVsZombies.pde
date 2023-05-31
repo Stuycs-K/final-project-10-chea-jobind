@@ -22,7 +22,7 @@ void setup() {
   menu.display();
   //lawn.spawnZombie(1);
   //lawn.spawnZombie(3);
-  lawn.spawnZombie(4);
+  lawn.spawnZombie(1);
 }
 
 void draw() {
