@@ -50,6 +50,10 @@ I then changed the parent classes (e.g. ShootingPlant) to adjust for these new s
 I also made the sun currency system fully work and increased starting sun to 500 for testing.
 I made natural suns spawn slightly lower and Lawn.display draw beige rectangles on the sides to cover up the sprites that spill over.
 
+### 2023-05-31
+
+I moved image loading to main, made it more efficient in menu and lawn, and changed Chomper processing.
+
 
 ## DAVID JOBIN
 
