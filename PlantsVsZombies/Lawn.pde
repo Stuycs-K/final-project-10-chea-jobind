@@ -55,10 +55,14 @@ public class Lawn {
   
   //Places a plant where the user clicks.
   void placePlant(int x, int y, int plant) {
-    if(sunM.remove(plantCosts[plant])) {
-      int[] plantCoord = mouseToArr(x,y);
-      Plant p = findPlant(plant);
-      grid[plantCoord[0]][plantCoord[1]] = p;
+    int[] plantCoord = mouseToArr(x,y);
+    if(grid[plantCoord[0]][plantCoord[1]] == null) {
+      if(sunM.remove(plantCosts[plant])) {
+        Plant p = findPlant(plant);
+        grid[plantCoord[0]][plantCoord[1]] = p;
+      }
+    } else if(plant <= BLANK) {
+      grid[plantCoord[0]][plantCoord[1]] = null;
     }
   }
   //Converts from mouseX mouseY to row-column paradigm.
