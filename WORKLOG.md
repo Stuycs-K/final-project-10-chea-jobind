@@ -48,6 +48,7 @@ I also cleaned up some code and fixed some minor bugs like framerate not being s
 I made all the plant classes, adding special tick functions where necessary.
 I then changed the parent classes (e.g. ShootingPlant) to adjust for these new subclasses.
 I also made the sun currency system fully work and increased starting sun to 500 for testing.
+I made natural suns spawn slightly lower and Lawn.display draw beige rectangles on the sides to cover up the sprites that spill over.
 
 
 ## DAVID JOBIN
