@@ -92,8 +92,8 @@ public class Lawn {
         if(grid[i][j] != null) {
           int[] imageCoord = arrToMouse(i, j);
           //image(loadImage(plantImageNames[grid[i][j].getID()]), imageCoord[0], imageCoord[1], 150, 150);
-          fill(255);
-          stroke(255);
+          fill(plantColors[grid[i][j].id]);
+          stroke(0);
           circle(imageCoord[0] + 75, imageCoord[1] + 75, 75);
         }
         /*
@@ -111,7 +111,7 @@ public class Lawn {
         }
       }
     }
-    renderProjectiles();
+    //renderProjectiles();
     fill(255, 248, 203);
     stroke(255, 248, 203);
     rect(0, TOPBORDER, LEFTBORDER, height - TOPBORDER);
@@ -120,21 +120,21 @@ public class Lawn {
   Zombie spawnZombie(int ID){
     int row = (int)random(5);
     laneZombies[row]++;
-    PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row);
+    PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row+TILE/2);
     Zombie z = new DefaultZombie();
     switch(ID){
       //case -1: z = new TestZombie(5,5.0,null,pos);
       case 1:
-        z = new DefaultZombie(6,pos);
+        z = new DefaultZombie(12,pos);
         break;
       case 2:
-        z = new ConeZombie(15,pos);
+        z = new ConeZombie(24,pos);
         break;
       case 3:
-        z = new BucketZombie(35,pos);
+        z = new BucketZombie(45,pos);
         break;
       case 4:
-        z = new PoleZombie(9,pos);
+        z = new PoleZombie(16,pos);
         break;
     }
     zombies.add(z);
@@ -145,7 +145,7 @@ public class Lawn {
     for(Zombie z: zombies){
       //print(z.getHealth());
       fill(z.getColor());
-      ellipse(z.getPos().x,z.getPos().y+TILE/2,TILE*2/3,TILE*5/6);
+      ellipse(z.getPos().x,z.getPos().y,TILE*2/3,TILE*5/6);
     }
   }
   void tickZombies(){
@@ -176,7 +176,7 @@ public class Lawn {
         //END GAME
       }
     }
-    //This line calls the "ProgressReader" which helps encapsulate File management
+    //This line calls the "ProgressReader" which (should) help encapsulate File management
     //spawnZombie(r.next());
   }
   void processPlants() {
@@ -189,13 +189,15 @@ public class Lawn {
         int id = grid[i][j] != null ? grid[i][j].getID() : BLANK;
         if(id == PEASHOOTER || id == SNOWPEA || id == CHOMPER || id == REPEATER) {
           Projectile p = (Projectile)(grid[i][j].tick());
-          if(p != null) {
+          if(p != null && laneZombies[i]!=0) {
+            p.setPos(new PVector(LEFTBORDER+j*TILE+TILE/2,TOPBORDER+i*TILE+TILE/2));
             projectiles.add(p);
           }
         }
         if(id == CHERRYBOMB || id == POTATOMINE) {
           Projectile p = (Projectile)(grid[i][j].tick());
           if(p != null) {
+            p.setPos(new PVector(LEFTBORDER+j*TILE+TILE/2,TOPBORDER+i*TILE+TILE/2));
             projectiles.add(p);
             grid[i][j] = null;
           }
@@ -213,31 +215,37 @@ public class Lawn {
     }
   }
   void tickProjectiles(){
-    int ZRAD = TILE*3/4;
+    boolean done;
+    int ZRAD = TILE*1/4;
     for(int i=0; i<projectiles.size(); i++){
+      done=false;
       Projectile p = projectiles.get(i);
       p.move();
       Zombie z;
+      if(p.getPos().x>width){
+        projectiles.remove(i);
+        i--;
+        continue;
+      }
       //println(p.getPos().x);
       for(int j=0; j<zombies.size(); j++){
         z = zombies.get(j);
         if(PVector.sub(z.getPos(),p.getPos()).mag()<p.getSize()+ZRAD){
           z.takeDamage(p.getDamage());
-          projectiles.remove(i);
-          i--;
-          break;
+          done=true;
         }
       }
-      if(p.getVelocity().mag()==0||p.getPos().x>width){
+      if(p.getVelocity().mag()==0||done){
         projectiles.remove(i);
         i--;
+        continue;
       }
     }
   }
   void renderProjectiles(){
     for(Projectile p: projectiles){
       fill(0,0,150);
-      ellipse(p.getPos().x,p.getPos().y,p.getSize(),p.getSize());
+      ellipse(p.getPos().x,p.getPos().y,p.getSize()*2,p.getSize()*2);
     }
   }
 }

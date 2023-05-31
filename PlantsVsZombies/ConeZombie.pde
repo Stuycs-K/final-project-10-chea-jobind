@@ -1,5 +1,5 @@
 public class ConeZombie extends Zombie{
-  static final int COOLDOWN_=40;
+  static final int COOLDOWN_=25;
   static final float SPEED = 0.5;
   static final color ZCOL = #F5B940;
   static final int ID = 2;

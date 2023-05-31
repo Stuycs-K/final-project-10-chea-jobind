@@ -1,5 +1,5 @@
 public class PoleZombie extends Zombie{
-  static final int COOLDOWN_=40;
+  static final int COOLDOWN_=25;
   static final float SPEED = 1.2;
   static final color ZCOL = #44E8DB;
   static final int ID = 4;
