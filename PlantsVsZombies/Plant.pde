@@ -10,7 +10,7 @@ public abstract class Plant {
   public Plant(int i) {
     health = plantHealths[i];
     id = i;
-    cooldown = plantCooldowns[i];
+    cooldown = 0;
   }
   public void takeDamage() {
     --health;
