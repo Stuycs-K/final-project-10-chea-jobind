@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 Lawn lawn;
 Menu menu;
 int level;
@@ -20,9 +22,10 @@ void setup() {
   menu = new Menu(level);
   lawn.display();
   menu.display();
-  //lawn.spawnZombie(1);
-  //lawn.spawnZombie(3);
   lawn.spawnZombie(1);
+  //lawn.spawnZombie(2);
+  //lawn.spawnZombie(3);
+  //lawn.spawnZombie(4);
 }
 
 void draw() {
@@ -34,6 +37,7 @@ void draw() {
   lawn.tickProjectiles();
   lawn.renderProjectiles();
   sm.add(sm.findSun());
+  //println(Arrays.toString(lawn.laneZombies));
 }
 
 void mouseReleased() {
