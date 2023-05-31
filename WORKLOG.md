@@ -89,4 +89,10 @@ Added projectile movement.
 Projectiles collide with zombies and are removed from the lawn.
 Added projectile rendering.
 Tweaked shooting speed and zombie health.
-Bugfixes on zombie+projectile collision.
+Bugfixes on zombie&projectile collision.
+
+### 2023-05-31
+
+Tweaked zombie eating speed.
+Added distinct plant colors. Changed stroke to black.
+Tweaked shooting speed (again).

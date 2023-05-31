@@ -32,6 +32,7 @@ void draw() {
   lawn.renderZombies();
   lawn.tickZombies();
   lawn.tickProjectiles();
+  lawn.renderProjectiles();
   sm.add(sm.findSun());
 }
 

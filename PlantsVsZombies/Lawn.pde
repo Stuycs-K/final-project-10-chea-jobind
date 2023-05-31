@@ -92,7 +92,7 @@ public class Lawn {
         if(grid[i][j] != null) {
           int[] imageCoord = arrToMouse(i, j);
           //image(loadImage(plantImageNames[grid[i][j].getID()]), imageCoord[0], imageCoord[1], 150, 150);
-          fill(255);
+          fill(plantColors[grid[i][j].id]);
           stroke(255);
           circle(imageCoord[0] + 75, imageCoord[1] + 75, 75);
         }
@@ -111,7 +111,7 @@ public class Lawn {
         }
       }
     }
-    renderProjectiles();
+    //renderProjectiles();
     fill(255, 248, 203);
     stroke(255, 248, 203);
     rect(0, TOPBORDER, LEFTBORDER, height - TOPBORDER);
@@ -197,6 +197,7 @@ public class Lawn {
         if(id == CHERRYBOMB || id == POTATOMINE) {
           Projectile p = (Projectile)(grid[i][j].tick());
           if(p != null) {
+            p.setPos(new PVector(LEFTBORDER+j*TILE+TILE/2,TOPBORDER+i*TILE+TILE/2));
             projectiles.add(p);
             grid[i][j] = null;
           }
@@ -214,11 +215,18 @@ public class Lawn {
     }
   }
   void tickProjectiles(){
+    boolean done;
     int ZRAD = TILE*1/4;
     for(int i=0; i<projectiles.size(); i++){
+      done=false;
       Projectile p = projectiles.get(i);
       p.move();
       Zombie z;
+      if(p.getPos().x>width){
+        projectiles.remove(i);
+        i--;
+        continue;
+      }
       //println(p.getPos().x);
       for(int j=0; j<zombies.size(); j++){
         z = zombies.get(j);
@@ -226,12 +234,14 @@ public class Lawn {
           z.takeDamage(p.getDamage());
           projectiles.remove(i);
           i--;
+          done=true;
           break;
         }
       }
-      if(p.getVelocity().mag()==0||p.getPos().x>width){
+      if(p.getVelocity().mag()==0&&!done){
         projectiles.remove(i);
         i--;
+        continue;
       }
     }
   }

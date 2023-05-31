@@ -1,5 +1,5 @@
 public class DefaultZombie extends Zombie{
-  static final int COOLDOWN_=40;
+  static final int COOLDOWN_=25;
   static final float SPEED = 0.5;
   static final color ZCOL = #767676;
   static final int ID = 1;
