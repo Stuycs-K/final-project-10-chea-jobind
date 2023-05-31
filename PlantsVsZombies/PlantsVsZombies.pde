@@ -6,6 +6,7 @@ int level;
 SunManager sm;
 //ProgressReader r;
 public static final int FRAMERATE = 30;
+PImage[] plantImages = new PImage[9];
 
 void setup() {
   size(1600, 900);
@@ -21,6 +22,15 @@ void setup() {
   lawn = new Lawn(sm /*, r*/);
   menu = new Menu(level);
   lawn.display();
+  plantImages[0] = loadImage("noplant.png"); 
+  plantImages[1] = loadImage("peashooter.png");
+  plantImages[2] = loadImage("sunflower.png");
+  plantImages[3] = loadImage("cherrybomb.png"); 
+  plantImages[4] = loadImage("wallnut.png"); 
+  plantImages[5] = loadImage("potatomine.png");
+  plantImages[6] = loadImage("snowpea.png"); 
+  plantImages[7] = loadImage("chomper.png");
+  plantImages[8] = loadImage("repeater.png");
   menu.display();
   lawn.spawnZombie(1);
   //lawn.spawnZombie(2);
