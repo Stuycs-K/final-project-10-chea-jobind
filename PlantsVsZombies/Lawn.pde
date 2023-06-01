@@ -241,6 +241,9 @@ public class Lawn {
         z = zombies.get(j);
         if(PVector.sub(z.getPos(),p.getPos()).mag()<p.getSize()+ZRAD){
           z.takeDamage(p.getDamage());
+          if(p.slow){
+            z.freeze();
+          }
           done=true;
         }
       }

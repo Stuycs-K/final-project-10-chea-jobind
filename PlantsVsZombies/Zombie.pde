@@ -9,6 +9,8 @@ public abstract class Zombie {
   private int ID;
   private PVector position;
   private color zCol;
+  private final color baseCol;
+  private int chillFactor = -1;
   
   public Zombie(int health_, /*int damage_,*/ int cooldown_, float speed_, PImage sprite_, PVector position_, color zCol_){
     health=health_;
@@ -20,6 +22,7 @@ public abstract class Zombie {
     position = position_;
     currentPlant=null;
     zCol=zCol_;
+    baseCol=zCol_;
   }
   //methods every
   public abstract int takeDamage(int damage);
@@ -37,6 +40,12 @@ public abstract class Zombie {
   public void move(){
     if(getCurPlant()==null){
       addPos(new PVector(-getSpeed(),0));
+    }
+    if(chillFactor>0){
+      chillFactor--;
+    } else if(chillFactor==0){
+      thaw();
+      chillFactor--;
     }
   }
   public void eatPlant(){
@@ -94,5 +103,16 @@ public abstract class Zombie {
   }
   public void setCurPlant(Plant p){
     currentPlant = p;
+  }
+  public void freeze(){
+    if(chillFactor<0){
+      speed=speed/2;
+    }
+    zCol=#1AC4FF;
+    chillFactor=96;
+  }
+  public void thaw(){
+    speed=speed*2;
+    zCol=baseCol;
   }
 }
