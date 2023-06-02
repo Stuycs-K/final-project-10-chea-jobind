@@ -105,3 +105,5 @@ Made shooting plants wait until a zombie is in their lane to shoot,
 which should keep the game from lagging (n^2 behavior).
 Added different colors for different projectiles.
 Cherry bomb now grows bigger before exploding.
+Zombies now spawn randomly on their own.
+Snow pea slows zombies and makes them blue until thawed (time-based).
