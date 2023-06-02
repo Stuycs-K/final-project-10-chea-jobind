@@ -6,13 +6,15 @@ public class Projectile {
   private int pColor=#10E331;
   boolean active;
   boolean slow;
-  public Projectile(PVector pos, PVector vel, int siz, int dmg, boolean slo) {
+  boolean persistent;
+  public Projectile(PVector pos, PVector vel, int siz, int dmg, boolean slo, boolean persistent_) {
     position = pos;
     velocity = vel;
     size = siz;
     damage = dmg;
     active = true;
     slow = slo;
+    persistent=persistent_;
   }
   public Projectile(PVector pos, PVector vel, int siz, int dmg){
     position = pos;
@@ -30,6 +32,9 @@ public class Projectile {
   }
   public PVector getVelocity(){
     return velocity;
+  }
+  public void setVelocity(PVector v){
+    velocity=v;
   }
   public int getSize(){
     return size;

@@ -11,11 +11,6 @@ PImage[] plantImages = new PImage[9];
 void setup() {
   size(1600, 900);
   frameRate(FRAMERATE);
-  /*
-  Zombie john = new TestZombie(100,1,1,1.0,null);
-  print(john.getHealth());
-  print(john.takeDamage(10));
-  */
   level = 11;
   sm = new SunManager();
   //r = new ProgressReader(level);
@@ -32,20 +27,15 @@ void setup() {
   plantImages[7] = loadImage("chomper.png");
   plantImages[8] = loadImage("repeater.png");
   menu.display();
-  lawn.spawnZombie(1);
-  //lawn.spawnZombie(2);
-  //lawn.spawnZombie(3);
-  //lawn.spawnZombie(4);
+  //lawn.spawnZombie(1);
 }
 
 void draw() {
-  //background(100);
+  //println(lawn.projectiles.size());
   int zSeed = 1+(int)random(8*24);
-  /*
   if(zSeed-4<=0){
     lawn.spawnZombie(zSeed);
   }
-  */
   lawn.processPlants();
   lawn.display();
   lawn.renderZombies();
