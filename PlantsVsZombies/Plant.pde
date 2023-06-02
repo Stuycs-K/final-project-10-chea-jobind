@@ -11,7 +11,7 @@ public abstract class Plant {
   public Plant(int i) {
     health = plantHealths[i];
     id = i;
-    cooldown = 0;
+    cooldown = plantCooldowns[i] / 2;
   }
   public void takeDamage() {
     --health;
@@ -39,5 +39,8 @@ public abstract class Plant {
   }
   public Object tick() {
     return null;
+  }
+  public void skipCooldown() {
+    cooldown = 0;
   }
 }
