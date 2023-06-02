@@ -107,3 +107,7 @@ Added different colors for different projectiles.
 Cherry bomb now grows bigger before exploding.
 Zombies now spawn randomly on their own.
 Snow pea slows zombies and makes them blue until thawed (time-based).
+
+### 2023-06-01
+
+Added lawnmowers
