@@ -39,4 +39,7 @@ public class PoleZombie extends Zombie{
       //setCurPlant(null);
     }
   }
+  public boolean jumped() {
+    return jumped;
+  }
 }
