@@ -54,6 +54,13 @@ I made natural suns spawn slightly lower and Lawn.display draw beige rectangles 
 
 I moved image loading to main, made it more efficient in menu and lawn, and changed Chomper processing.
 
+### 2023-06-01
+
+I added a game over system and level progression (not game-accurate).
+I also added zombie sprites and zombie displaying, including special handling of PoleZombie and zombies with hats.
+I also made plants spawn with half their normal cooldown except chomper which spawns with 0 cooldown.
+
+
 
 ## DAVID JOBIN
 

@@ -5,7 +5,7 @@ public class PotatoMine extends ExplodingPlant {
     armed = false;
   }
   public Object tick() {
-    println(getCooldown());
+    //println(getCooldown());
     if(getCooldown() != 0) {
       tickCooldown();
     }
