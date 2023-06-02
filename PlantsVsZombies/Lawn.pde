@@ -126,19 +126,20 @@ public class Lawn {
     laneZombies[row]++;
     PVector pos = new PVector(RIGHTBORDER,TOPBORDER+TILE*row+TILE/2);
     Zombie z = new DefaultZombie();
+    PImage p = zombieImages[ID - 1];
     switch(ID){
       //case -1: z = new TestZombie(5,5.0,null,pos);
       case 1:
-        z = new DefaultZombie(12,pos);
+        z = new DefaultZombie(12, p, pos);
         break;
       case 2:
-        z = new ConeZombie(24,pos);
+        z = new ConeZombie(24, p, pos);
         break;
       case 3:
-        z = new BucketZombie(45,pos);
+        z = new BucketZombie(45, p, pos);
         break;
       case 4:
-        z = new PoleZombie(16,pos);
+        z = new PoleZombie(16, p, pos);
         break;
     }
     zombies.add(z);
@@ -148,11 +149,31 @@ public class Lawn {
     lawn.display();
     for(Zombie z: zombies){
       //print(z.getHealth());
-      fill(z.getColor());
-      ellipse(z.getPos().x,z.getPos().y,TILE*2/3,TILE*5/6);
+      //fill(z.getColor());
+      //ellipse(z.getPos().x,z.getPos().y,TILE*2/3,TILE*5/6);
+      imageMode(CENTER);
+      if(z.getID() != 4) {
+        if(z.getHealth() > 10) {
+          image(z.getSprite(), z.getPos().x, z.getPos().y, TILE*2/3, TILE*5/6);
+        } else {
+          image(zombieImages[0], z.getPos().x, z.getPos().y, TILE*2/3, TILE*5/6);
+        }
+      } else {
+        PoleZombie p = (PoleZombie)(z);
+        if(p.jumped()) {
+          image(zombieImages[4], z.getPos().x, z.getPos().y, TILE*2/3, TILE*5/6);
+        } else {
+          image(zombieImages[3], z.getPos().x, z.getPos().y, TILE, TILE*5/6);
+        }
+      }
+      imageMode(CORNER);
     }
   }
   void tickZombies(){
+    if(zombies.size() == 0) {
+      NEXTLEVEL = true;
+      return;
+    }
     for(int i = 0; i < zombies.size(); ++i) {
       Zombie z = zombies.get(i);
       int[] pos = mouseToArr((int)z.getPos().x,(int)z.getPos().y);
@@ -182,7 +203,13 @@ public class Lawn {
         zombies.remove(i);
         laneZombies[mouseToArr((int)z.getPos().x,(int)z.getPos().y)[0]]--;
         i--;
-        //END GAME
+        if(z.getPos().x < 0) {
+          GAMEACTIVE = false;
+          textSize(60);
+          fill(255, 0, 0);
+          text("THE ZOMBIES ATE YOUR BRAINS", width/3, height/2);
+          textSize(12);
+        }
       }
     }
     //This line calls the "ProgressReader" which (should) help encapsulate File management
