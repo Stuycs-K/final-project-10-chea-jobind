@@ -19,9 +19,20 @@ public class Lawn {
     projectiles = new ArrayList<Projectile>();
     zombies = new ArrayList<Zombie>();
     sunM = s;
+    spawnLawnMowers();
     //r = r_;
   }
   //Returns a new plant based on the ID
+  public void spawnLawnMowers(){
+    Projectile mower;
+    PVector pos;
+    for(int i=0; i<5; i++){
+      pos = new PVector(LEFTBORDER-50, TOPBORDER+i*TILE+TILE/2);
+      mower = new Projectile(pos,new PVector(0,0), 40, 9999, false, true);
+      mower.setColor(#312A2A);
+      projectiles.add(mower);
+    }
+  }
   public Plant findPlant(int i) {
     if(i <= BLANK) {
       return null;
@@ -271,13 +282,19 @@ public class Lawn {
           if(p.slow){
             z.freeze();
           }
-          done=true;
+          if(!p.persistent){
+            done=true;
+          } else{
+            p.setVelocity(new PVector(10,0));
+          }
         }
       }
       if(p.getVelocity().mag()==0||done){
-        projectiles.remove(i);
-        i--;
-        continue;
+        if(!p.persistent){
+          projectiles.remove(i);
+          i--;
+          continue;
+        }
       }
     }
   }
