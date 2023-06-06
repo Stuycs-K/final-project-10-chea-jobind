@@ -118,3 +118,7 @@ Snow pea slows zombies and makes them blue until thawed (time-based).
 ### 2023-06-01
 
 Added lawnmowers
+
+### 2023-06-05
+
+Added basic level selecting screen.
