@@ -5,13 +5,13 @@ public static int RIGHTBORDER = 1475;
 public static int TILE = 150;
 
 public class Lawn {
-  Plant[][] grid;
-  int[] laneZombies = new int[] {0,0,0,0,0};
-  ArrayList<Projectile> projectiles;
-  ArrayList<Zombie> zombies;
-  SunManager sunM;
+  private Plant[][] grid;
+  private int[] laneZombies = new int[] {0,0,0,0,0};
+  private ArrayList<Projectile> projectiles;
+  private ArrayList<Zombie> zombies;
+  private SunManager sunM;
   //ProgressReader r;
-  boolean finished;
+  private boolean finished;
   
   public Lawn(SunManager s /*, ProgressReader r_*/) {
     finished=false;
@@ -184,6 +184,8 @@ public class Lawn {
     if(zombies.size() == 0) {
       NEXTLEVEL = true;
       return;
+    } else {
+      NEXTLEVEL = false;
     }
     for(int i = 0; i < zombies.size(); ++i) {
       Zombie z = zombies.get(i);
