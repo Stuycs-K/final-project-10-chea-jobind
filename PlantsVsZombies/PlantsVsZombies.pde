@@ -2,8 +2,9 @@ import java.util.Arrays;
 
 Lawn lawn;
 Menu menu;
-int level = 11;
+int level = -1;
 SunManager sm;
+boolean selected = false;
 //ProgressReader r;
 public static final int FRAMERATE = 30;
 PImage[] plantImages = new PImage[9];
@@ -54,36 +55,51 @@ void setup() {
 }
 
 void draw() {
-  //println(NEXTLEVEL);
-  if(NEXTLEVEL) {
-    ++level;
-    NEXTLEVEL = false;
-    setup();
-  } else if(GAMEACTIVE) {
-    //background(100);
-    int zSeed = 1+(int)random(8*24);
-    /*
-    if(zSeed-4<=0){
-      lawn.spawnZombie(zSeed);
+  if(selected){
+    //println(NEXTLEVEL);
+    if(NEXTLEVEL) {
+      ++level;
+      NEXTLEVEL = false;
+      setup();
+    } else if(GAMEACTIVE) {
+      //background(100);
+      int zSeed = 1+(int)random(8*24);
+      /*
+      if(zSeed-4<=0){
+        lawn.spawnZombie(zSeed);
+      }
+      */
+      lawn.processPlants();
+      lawn.display();
+      lawn.renderZombies();
+      lawn.tickZombies();
+      lawn.tickProjectiles();
+      lawn.renderProjectiles();
+      sm.add(sm.findSun());
+      //println(Arrays.toString(lawn.laneZombies));
     }
-    */
-    lawn.processPlants();
-    lawn.display();
-    lawn.renderZombies();
-    lawn.tickZombies();
-    lawn.tickProjectiles();
-    lawn.renderProjectiles();
-    sm.add(sm.findSun());
-    //println(Arrays.toString(lawn.laneZombies));
-  } 
+  } else{
+    background(100);
+    fill(255);
+    text("Type number of level",width/2,height/2);
+    text(level,20,20);
+  }
 }
 
 void mouseReleased() {
-  if(GAMEACTIVE) {
+  if(GAMEACTIVE&&selected) {
     menu.processClick(lawn);
     menu.update();
   } else {
     background(255);
     setup();
+  }
+}
+void keyPressed(){
+  if(selected){
+  } else{
+    int lNum = Integer.parseInt(""+key);
+    level = lNum-1;
+    selected=true;
   }
 }
