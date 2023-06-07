@@ -43,7 +43,7 @@ public class Button {
       image(plantImages[plantType], x0, y0, 100, 100);
     }
     if(plantType == -1) {
-      text("remove", x0, y0);
+      image(loadImage("shovel.png"), x0, y0, 100, 100);
     }
   }
 }
