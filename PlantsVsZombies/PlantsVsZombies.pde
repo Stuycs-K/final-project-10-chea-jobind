@@ -11,6 +11,7 @@ PImage[] plantImages = new PImage[9];
 PImage[] zombieImages = new PImage[5];
 boolean GAMEACTIVE;
 boolean NEXTLEVEL;
+int CURRENTTICK;
 
 void setup() {
   plantImages[0] = loadImage("noplant.png"); 
@@ -40,35 +41,46 @@ void setup() {
   menu = new Menu(level);
   lawn.display();
   menu.display();
+  CURRENTTICK = 0;
   GAMEACTIVE = true;
-  for(int i = 0; i < level; ++i) {
-    if(i < 4) {
-      lawn.spawnZombie(int(random(i)) + 1);
-    } else {
-      lawn.spawnZombie(int(random(4)) + 1);
-    }
+}
+
+void spawnRandomZombie(int l) {
+  if(l >= 8) {
+    lawn.spawnZombie(int(random(4)) + 1);
+  } else if(l >= 6) {
+    lawn.spawnZombie(int(random(3)) + 1);
+  } else if(l >= 3) {
+    lawn.spawnZombie(int(random(2)) + 1);
+  } else {
+    lawn.spawnZombie(1);
   }
-  //lawn.spawnZombie(1);
-  //lawn.spawnZombie(2);
-  //lawn.spawnZombie(3);
-  //lawn.spawnZombie(4);
+}
+
+boolean isZombieTick(int t) {
+  if(t < 30 * FRAMERATE || t > 180 * FRAMERATE) {
+    return false;
+  }
+  if(t % (10 * FRAMERATE) == 0) {
+    return true;
+  }
+  if(t % (2 * FRAMERATE) == 0 && (abs(90 * FRAMERATE - t) < 10 * FRAMERATE || t > 150 * FRAMERATE)) { // if it's a wave
+    return true;
+  }
+  return false;
 }
 
 void draw() {
   if(selected){
-    //println(NEXTLEVEL);
-    if(NEXTLEVEL) {
+    if(CURRENTTICK >= 180 * FRAMERATE && NEXTLEVEL) {
       ++level;
       NEXTLEVEL = false;
       setup();
     } else if(GAMEACTIVE) {
-      //background(100);
-      int zSeed = 1+(int)random(8*24);
-      /*
-      if(zSeed-4<=0){
-        lawn.spawnZombie(zSeed);
+      if(isZombieTick(CURRENTTICK)) {
+        spawnRandomZombie(level);
       }
-      */
+      ++CURRENTTICK;
       lawn.processPlants();
       lawn.display();
       lawn.renderZombies();
@@ -90,7 +102,7 @@ void mouseReleased() {
   if(GAMEACTIVE&&selected) {
     menu.processClick(lawn);
     menu.update();
-  } else {
+  } else if (selected) {
     background(255);
     setup();
   }
@@ -99,7 +111,10 @@ void keyPressed(){
   if(selected){
   } else{
     int lNum = Integer.parseInt(""+key);
-    level = lNum-1;
+    level = lNum;
     selected=true;
+    lawn.display();
+    menu = new Menu(level);
+    menu.display();
   }
 }
