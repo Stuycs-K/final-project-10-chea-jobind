@@ -194,15 +194,11 @@ public class Lawn {
         z.decrement();
         //print(z.getCurrentCooldown());
         z.setCurPlant(grid[pos[0]][pos[1]]);
-        if(z.getCurPlant().getID() == POTATOMINE || z.getCurPlant().getID() == CHOMPER) {
+        if(z.getCurPlant().getID() == CHOMPER) {
           //println(z.getCurPlant().getCooldown());
           if(z.getCurPlant().getCooldown() == 0) {
             zombies.remove(i);
-            if(z.getCurPlant().getID() == POTATOMINE) {
-              grid[pos[0]][pos[1]] = null;
-            } else {
-              grid[pos[0]][pos[1]].resetCooldown();
-            }
+            grid[pos[0]][pos[1]].resetCooldown();
             continue;
           }
         }
@@ -245,6 +241,7 @@ public class Lawn {
         }
         if(id == CHERRYBOMB || id == POTATOMINE) {
           Projectile p = (Projectile)(grid[i][j].tick());
+          println(p == null);
           if(p != null) {
             p.setPos(new PVector(LEFTBORDER+j*TILE+TILE/2,TOPBORDER+i*TILE+TILE/2));
             projectiles.add(p);
@@ -276,6 +273,11 @@ public class Lawn {
         i--;
         continue;
       }
+      /*
+      if(p.getDamage() != 9999) {
+        println(p.getDamage());
+      }
+      */
       //println(p.getPos().x);
       for(int j=0; j<zombies.size(); j++){
         z = zombies.get(j);
@@ -302,8 +304,12 @@ public class Lawn {
   }
   void renderProjectiles(){
     for(Projectile p: projectiles){
-      fill(p.getColor());
-      ellipse(p.getPos().x,p.getPos().y,p.getSize()*2,p.getSize()*2);
+      if(p.getDamage() == 9999) {
+        image(lawnmowerImage, p.getPos().x-p.getSize(), p.getPos().y-p.getSize(), p.getSize()*2, p.getSize()*2);
+      } else {
+        fill(p.getColor());
+        ellipse(p.getPos().x,p.getPos().y,p.getSize()*2,p.getSize()*2);
+      }
     }
   }
 }

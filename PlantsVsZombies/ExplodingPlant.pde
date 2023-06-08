@@ -9,7 +9,7 @@ public class ExplodingPlant extends Plant {
       radius = 225; // 1.5 squares
     } else {
       damage = 90;
-      damage = 75;
+      radius = 75;
     }
   }
   public Object tick() {

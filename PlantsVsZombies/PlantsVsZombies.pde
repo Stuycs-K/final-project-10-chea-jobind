@@ -9,6 +9,7 @@ boolean selected = false;
 public static final int FRAMERATE = 30;
 PImage[] plantImages = new PImage[9];
 PImage[] zombieImages = new PImage[5];
+PImage lawnmowerImage;
 boolean GAMEACTIVE;
 boolean NEXTLEVEL;
 int CURRENTTICK;
@@ -28,6 +29,7 @@ void setup() {
   zombieImages[2] = loadImage("bucketzombie.png");
   zombieImages[3] = loadImage("polezombie.png");
   zombieImages[4] = loadImage("nopolezombie.png");
+  lawnmowerImage = loadImage("lawnmower.png");
   size(1600, 900);
   frameRate(FRAMERATE);
   /*
