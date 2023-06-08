@@ -76,6 +76,7 @@ void draw() {
       lawn.tickProjectiles();
       lawn.renderProjectiles();
       sm.add(sm.findSun());
+      menu.update();
       //println(Arrays.toString(lawn.laneZombies));
     }
   } else{
