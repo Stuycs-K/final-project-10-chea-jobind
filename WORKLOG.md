@@ -60,6 +60,10 @@ I added a game over system and level progression (not game-accurate).
 I also added zombie sprites and zombie displaying, including special handling of PoleZombie and zombies with hats.
 I also made plants spawn with half their normal cooldown except chomper which spawns with 0 cooldown.
 
+### 2023-06-06
+
+I made a new zombie spawning system similar to the original game with waves and a grace period at the start.
+
 
 
 ## DAVID JOBIN
