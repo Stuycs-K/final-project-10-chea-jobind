@@ -38,6 +38,10 @@ public class Button {
     stroke(255);
     fill(255);
     rect(x0, y0, x1 - x0, y1 - y0);
+    if(plantType>=0){
+      fill(100,100,100,255-255*(curCooldowns[plantType]/costCooldowns[plantType]));
+      rect(x0, y0, x1 - x0, y1 - y0);
+    }
     if(plantType > 0) {
       //text(plantNames[plantType], x0, y0);
       image(plantImages[plantType], x0, y0, 100, 100);
