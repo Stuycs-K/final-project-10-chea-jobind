@@ -68,6 +68,7 @@ I made a new zombie spawning system similar to the original game with waves and 
 
 I added the shovel and lawnmower sprites and loaded them in the game.
 I also fixed potatomine to actually explode and kill all zombies in radius instead of just deleting the zombie that triggers it.
+I improved the game over screen and fixed things drawing over it.
 
 
 ## DAVID JOBIN
