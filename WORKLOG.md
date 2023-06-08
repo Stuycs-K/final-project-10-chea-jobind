@@ -130,3 +130,10 @@ Added lawnmowers
 ### 2023-06-05
 
 Added basic level selecting screen.
+
+### 2023-06-07
+
+Added plant buying cooldowns so the player can't
+spam plants, even when he/she has enough sun.
+Added a visual aid to indicate when a plant's purchase
+cooldown has finished.
