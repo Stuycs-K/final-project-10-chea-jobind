@@ -64,6 +64,10 @@ I also made plants spawn with half their normal cooldown except chomper which sp
 
 I made a new zombie spawning system similar to the original game with waves and a grace period at the start.
 
+### 2023-06-07
+
+I added the shovel and lawnmower sprites and loaded them in the game.
+I also fixed potatomine to actually explode and kill all zombies in radius instead of just deleting the zombie that triggers it.
 
 
 ## DAVID JOBIN
