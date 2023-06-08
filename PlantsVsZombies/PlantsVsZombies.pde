@@ -87,6 +87,9 @@ void draw() {
       lawn.display();
       lawn.renderZombies();
       lawn.tickZombies();
+      if(!GAMEACTIVE) {
+        return;
+      }
       lawn.tickProjectiles();
       lawn.renderProjectiles();
       sm.add(sm.findSun());

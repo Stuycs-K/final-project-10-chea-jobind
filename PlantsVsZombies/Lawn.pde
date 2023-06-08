@@ -214,10 +214,12 @@ public class Lawn {
         i--;
         if(z.getPos().x < 0) {
           GAMEACTIVE = false;
+          background(0);
           textSize(60);
           fill(255, 0, 0);
           text("THE ZOMBIES ATE YOUR BRAINS", width/3, height/2);
           textSize(12);
+          text("CLICK TO RESTART LEVEL", width/3, height/2 + 60);
         }
       }
     }
