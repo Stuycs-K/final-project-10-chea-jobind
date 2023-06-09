@@ -37,7 +37,7 @@ void setup() {
   print(john.getHealth());
   print(john.takeDamage(10));
   */
-  sm = new SunManager();
+  sm = new SunManager(50);
   //r = new ProgressReader(level);
   lawn = new Lawn(sm /*, r*/);
   menu = new Menu(level);
@@ -60,7 +60,7 @@ void spawnRandomZombie(int l) {
 }
 
 boolean isZombieTick(int t) {
-  if(t < 30 * FRAMERATE || t > 180 * FRAMERATE) {
+  if(t < 10 * FRAMERATE || t > 180 * FRAMERATE) {
     return false;
   }
   if(t % (10 * FRAMERATE) == 0) {
@@ -80,7 +80,9 @@ void draw() {
       setup();
     } else if(GAMEACTIVE) {
       if(isZombieTick(CURRENTTICK)) {
-        spawnRandomZombie(level);
+        if(random(1) < level * 0.05 + 0.5) {
+          spawnRandomZombie(level);
+        }
       }
       ++CURRENTTICK;
       lawn.processPlants();
@@ -94,6 +96,12 @@ void draw() {
       lawn.renderProjectiles();
       sm.add(sm.findSun());
       menu.update();
+      if(CURRENTTICK >= 70 * FRAMERATE && CURRENTTICK < 80 * FRAMERATE || CURRENTTICK >= 140 * FRAMERATE && CURRENTTICK < 150 * FRAMERATE) {
+        text("WAVE APPROACHING", width/2, height/2);
+      }
+      if(CURRENTTICK >= 80 * FRAMERATE && CURRENTTICK < 100 * FRAMERATE || CURRENTTICK >= 150 * FRAMERATE && CURRENTTICK < 180 * FRAMERATE) {
+        text("WAVE SPAWNING", width/2, height/2);
+      }
       //println(Arrays.toString(lawn.laneZombies));
     }
   } else{
@@ -119,6 +127,10 @@ void keyPressed(){
     int lNum = Integer.parseInt(""+key);
     level = lNum;
     selected=true;
+    if(level == 1) {
+      sm = new SunManager(1000);
+      lawn = new Lawn(sm);
+    }
     lawn.display();
     menu = new Menu(level);
     menu.display();
