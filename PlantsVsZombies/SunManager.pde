@@ -2,8 +2,8 @@ public class SunManager {
   private int cooldown;
   private int sunAmount;
   private ArrayList<Sun> sunList;
-  public SunManager() {
-    sunAmount = 500000;
+  public SunManager(int start) {
+    sunAmount = start;
     sunList = new ArrayList<Sun>();
     cooldown = 10 * FRAMERATE;
   }

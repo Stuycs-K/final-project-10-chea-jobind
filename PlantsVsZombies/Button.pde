@@ -45,6 +45,8 @@ public class Button {
     if(plantType > 0) {
       //text(plantNames[plantType], x0, y0);
       image(plantImages[plantType], x0, y0, 100, 100);
+      fill(0);
+      text(plantCosts[plantType], x0, y0 + 10);
     }
     if(plantType == -1) {
       image(loadImage("shovel.png"), x0, y0, 100, 100);

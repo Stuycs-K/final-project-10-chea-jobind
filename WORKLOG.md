@@ -70,6 +70,12 @@ I added the shovel and lawnmower sprites and loaded them in the game.
 I also fixed potatomine to actually explode and kill all zombies in radius instead of just deleting the zombie that triggers it.
 I improved the game over screen and fixed things drawing over it.
 
+### 2023-06-09
+
+I made zombie spawning slightly more balanced by scaling zombie frequency based on the level.
+I also gave more sun on round 1 since sunflowers aren't available and displayed plant costs on their buttons.
+
+
 
 ## DAVID JOBIN
 
