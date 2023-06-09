@@ -243,7 +243,7 @@ public class Lawn {
         }
         if(id == CHERRYBOMB || id == POTATOMINE) {
           Projectile p = (Projectile)(grid[i][j].tick());
-          println(p == null);
+          //println(p == null);
           if(p != null) {
             p.setPos(new PVector(LEFTBORDER+j*TILE+TILE/2,TOPBORDER+i*TILE+TILE/2));
             projectiles.add(p);
