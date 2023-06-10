@@ -148,3 +148,4 @@ cooldown has finished.
 ### 2023-06-09
 
 Fixed Bug that overly reset the plant cooldown.
+Tweaked zombie health.
