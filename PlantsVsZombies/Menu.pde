@@ -34,7 +34,7 @@ public class Menu {
     for(int i = 0; i < buttons.size(); ++i) {
       if(buttons.get(i).isInButton(mouseX, mouseY)) {
         currentPlant = buttons.get(i).press(currentPlant);
-        if(curCooldowns[currentPlant]<costCooldowns[currentPlant]){
+        if(curCooldowns[currentPlant]<costCooldowns[currentPlant]||!l.sunM.enough(plantCosts[currentPlant])){
           currentPlant = BLANK;
         }
         return;
