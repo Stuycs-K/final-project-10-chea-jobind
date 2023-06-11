@@ -48,4 +48,7 @@ public class SunManager {
     }
     return false;
   }
+  public boolean enough(int i){
+    return (sunAmount - i >=0);
+  }
 }

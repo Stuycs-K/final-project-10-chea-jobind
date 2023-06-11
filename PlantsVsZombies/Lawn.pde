@@ -141,16 +141,16 @@ public class Lawn {
     switch(ID){
       //case -1: z = new TestZombie(5,5.0,null,pos);
       case 1:
-        z = new DefaultZombie(12, p, pos);
+        z = new DefaultZombie(7, p, pos);
         break;
       case 2:
-        z = new ConeZombie(24, p, pos);
+        z = new ConeZombie(18, p, pos);
         break;
       case 3:
-        z = new BucketZombie(45, p, pos);
+        z = new BucketZombie(27, p, pos);
         break;
       case 4:
-        z = new PoleZombie(16, p, pos);
+        z = new PoleZombie(10, p, pos);
         break;
     }
     zombies.add(z);
