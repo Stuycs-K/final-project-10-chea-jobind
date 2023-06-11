@@ -10,10 +10,9 @@ public class Lawn {
   private ArrayList<Projectile> projectiles;
   private ArrayList<Zombie> zombies;
   private SunManager sunM;
-  //ProgressReader r;
   private boolean finished;
   
-  public Lawn(SunManager s /*, ProgressReader r_*/) {
+  public Lawn(SunManager s) {
     finished=false;
     grid = new Plant[5][9];
     projectiles = new ArrayList<Projectile>();
@@ -223,8 +222,6 @@ public class Lawn {
         }
       }
     }
-    //This line calls the "ProgressReader" which (should) help encapsulate File management
-    //spawnZombie(r.next());
   }
   void processPlants() {
     for(int i = 0; i < grid.length; ++i) {

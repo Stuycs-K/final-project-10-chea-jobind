@@ -5,7 +5,6 @@ Menu menu;
 int level = -1;
 SunManager sm;
 boolean selected = false;
-//ProgressReader r;
 public static final int FRAMERATE = 30;
 PImage[] plantImages = new PImage[9];
 PImage[] zombieImages = new PImage[5];
@@ -38,8 +37,7 @@ void setup() {
   print(john.takeDamage(10));
   */
   sm = new SunManager(50);
-  //r = new ProgressReader(level);
-  lawn = new Lawn(sm /*, r*/);
+  lawn = new Lawn(sm);
   menu = new Menu(level);
   lawn.display();
   menu.display();
