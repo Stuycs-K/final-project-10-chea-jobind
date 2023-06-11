@@ -75,6 +75,11 @@ I improved the game over screen and fixed things drawing over it.
 I made zombie spawning slightly more balanced by scaling zombie frequency based on the level.
 I also gave more sun on round 1 since sunflowers aren't available and displayed plant costs on their buttons.
 
+### 2023-06-11
+
+I removed the old ProgressReader files since progression was implemented a different way.
+I also reduced the sunflower cooldown after playtesting to make the game easier.
+
 
 
 ## DAVID JOBIN
