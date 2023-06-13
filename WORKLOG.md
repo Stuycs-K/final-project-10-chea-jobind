@@ -163,8 +163,14 @@ a
 
 ### Broken Features / Bugs
 
-a
+If you press 0 on the level select screen, it will spawn you into a broken level where you can't place any plants.
+Right now, there is no game end after level 10, meaning the game continues forever. As far as we can tell, all levels after 10 have the same difficulty scaling as level 10.
+We once encountered a bug where a plant shot with no zombies in its lane, but we haven't been able to reproduce it.
+The remove tool just deletes the plant with no cooldown, which is not accurate to the original game.
+If the falling suns reach the bottom of the screen, they don't get drawn over, resulting in yellow circles remaining that can't be collected.
 
 ### Content Resources
 
-a
+The only resource we used was the PvZ strategy Fandom for plant and zombie stats:
+https://pvzstrategy.fandom.com/wiki/Plant_Stats
+https://pvzstrategy.fandom.com/wiki/Zombie_Stats
