@@ -159,7 +159,15 @@ Tweaked zombie health.
 
 ### Working Features
 
-a
+Sun falls from sky regularly.
+Plants are buyable and placeable.
+Plants attack zombies consistently.
+Levels are beatable; Zombies spawn properly.
+Zombies perform special abilities.
+Plant and Zombie textures are loaded properly.
+Lawnmowers kill zombies and move across the lawn.
+Plant buying cooldowns stop the player from spamming.
+There is a cooldown before the zombies start, to give the player time to prepare.
 
 ### Broken Features / Bugs
 
